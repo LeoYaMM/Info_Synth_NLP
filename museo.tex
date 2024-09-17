@@ -1,0 +1,160 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{ragged2e} 
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.95}
+
+\lstset{
+    basicstyle=\ttfamily,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate=%
+    {á}{{\'a}}1
+    {é}{{\'e}}1
+    {í}{{\'i}}1
+    {ó}{{\'o}}1
+    {ú}{{\'u}}1
+    {ñ}{{\~n}}1
+    {Á}{{\'A}}1
+    {É}{{\'E}}1
+    {Í}{{\'I}}1
+    {Ó}{{\'O}}1
+    {Ú}{{\'U}}1
+    {Ñ}{{\~N}}1
+}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolor},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{red},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2  
+}
+
+\titleformat{\section}
+{\huge\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}
+{\large\bfseries}{\thesubsection}{1em}{}
+
+\renewcommand\thesection{\arabic{section}}
+
+\title{\Huge{\textbf{Thot: Sistema de Sintetización de Información en la Sala Mexica del Museo Nacional de Antropología mediante Técnicas de Lenguaje Natural}}\\
+\Large{\textbf{Ingeniería de Software Para Sistemas Intelgentes}}}
+\author{Diego Castillo Reyes\\Marthon Leobardo Yañez Martinez\\Aldo Escamilla Resendiz}
+
+\graphicspath{{imagenes/}}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \newpage
+    \justifying 
+
+    \section{Introducción}
+        El Museo Nacional de Antropología es uno de los recintos culturales más importantes de México y el mundo, albergando una vasta colección de objetos históricos que representan la rica herencia cultural de las civilizaciones precolombinas. En particular, la sala Mexica atrae a miles de visitantes interesados en aprender sobre esta civilización clave en la historia de Mesoamérica. Sin embargo, la cantidad de información disponible puede resultar abrumadora para muchos, lo que dificulta una comprensión accesible y rápida de los datos más relevantes.
+
+        En este contexto, surge el proyecto Thot, un Sistema de Sintetización de Información que tiene como objetivo ofrecer resúmenes concisos y precisos de los contenidos presentados en la sala Mexica del Museo Nacional de Antropología. A través del uso de técnicas avanzadas de Procesamiento de Lenguaje Natural (NLP), Thot permite extraer, sintetizar y presentar la información más importante, facilitando una experiencia educativa más accesible y personalizada para los visitantes.
+
+        Además, Thot incluye una actividad interactiva que busca enriquecer la experiencia del usuario. Al finalizar la síntesis de la información, el sistema presenta una trivia relacionada con los temas abordados, diseñada para que los visitantes puedan participar en un juego entretenido y educativo entre amigos y familiares.
+
+        Este sistema no solo busca enriquecer la visita al museo, sino también explorar nuevas formas de aplicar la inteligencia artificial en la preservación y divulgación del patrimonio cultural. Thot se posiciona como una herramienta innovadora para museos, donde la cantidad de información puede convertirse en una barrera para el entendimiento profundo de las colecciones, y al mismo tiempo fomenta la interacción y la diversión educativa.
+
+    \section{Problemática}
+    
+        En la actualidad, los museos juegan un papel esencial en la educación y la preservación del patrimonio cultural. Sin embargo, uno de los principales desafíos que enfrentan es la sobrecarga de información que puede afectar la experiencia de los visitantes. La sala Mexica del Museo Nacional de Antropología es un ejemplo claro, donde la vasta cantidad de objetos y datos históricos puede resultar abrumadora, dificultando la asimilación rápida y efectiva de los contenidos expuestos.
+    
+        Este problema se agrava cuando los visitantes buscan una experiencia más profunda o personalizada y no cuentan con el tiempo necesario para analizar toda la información. Las visitas guiadas pueden proporcionar un contexto valioso, pero están limitadas por horarios y la capacidad de personal disponible. Además, la información escrita en carteles o paneles a menudo carece de un formato que se ajuste a las necesidades individuales de los visitantes.
+    
+        Adicionalmente, los museos enfrentan el desafío de atraer y retener el interés de un público más joven, acostumbrado a experiencias interactivas y dinámicas. La mayoría de las exhibiciones actuales son unidireccionales, lo que limita la interacción y participación activa de los visitantes, particularmente en grupos familiares o de amigos que buscan compartir una experiencia colectiva más entretenida y competitiva.
+
+        Por tanto, surge la necesidad de desarrollar herramientas que, mediante el uso de tecnologías innovadoras, ofrezcan soluciones que no solo faciliten el acceso a la información clave, sino que también proporcionen una experiencia interactiva y personalizada que motive a los visitantes a involucrarse activamente en su aprendizaje y a compartir ese proceso con otros.
+    
+        
+    \section{Objetivos}
+    \begin{tabbing}
+        \hspace{2cm} \= \kill
+        1. Facilitar la comprensión del contenido histórico y cultural de la sala Mexica del Museo Nacional de Antropología\\
+        mediante técnicas avanzadas de procesamiento de lenguaje natural. \\
+        2. Promover la interacción educativa y cultural entre los visitantes del museo, integrando actividades dinámicas\\
+           como trivias y juegos que fomenten la participación activa. \\
+        3. Aplicar inteligencia artificial en la síntesis de información, creando experiencias más atractivas y\\
+        personalizadas para los usuarios.
+    \end{tabbing}
+
+
+    \section{Solución de Propuesta}
+    \justifying
+    Thot es un Sistema de Sintetización de Información que utiliza técnicas avanzadas de Procesamiento de Lenguaje Natural (NLP) para extraer, resumir y presentar los contenidos de la sala Mexica del Museo Nacional de Antropología de manera accesible y personalizada. A través de una interfaz interactiva, los visitantes pueden explorar los resúmenes generados por Thot y participar en una trivia educativa diseñada para enriquecer su experiencia en el museo.
+    
+        
+    La solución propuesta consta de los siguientes componentes clave:
+        
+    \begin{itemize}
+        \item \textbf{Extracción de Información}: Thot utiliza técnicas de NLP para analizar y extraer información relevante de los textos presentes en la sala Mexica, identificando conceptos clave, fechas importantes, personajes destacados y eventos significativos.
+        \item \textbf{Síntesis de Información}: Con base en la información extraída, Thot genera resúmenes concisos y precisos que presentan los datos más relevantes de manera clara y accesible para los visitantes.
+        \item \textbf{Interfaz de Usuario}: Thot cuenta con una interfaz intuitiva y amigable que permite a los usuarios explorar los resúmenes generados, acceder a información detallada y participar en la trivia interactiva.
+        \item \textbf{Trivias Educativas}: Al finalizar la síntesis de la información, Thot presenta una trivia relacionada con los temas abordados en la sala Mexica, diseñada para que los visitantes pongan a prueba sus conocimientos y se diviertan aprendiendo.
+        \item \textbf{Integración de Tecnologías Innovadoras}: Thot incorpora tecnologías avanzadas como NLP, IA y visualización de datos para ofrecer una experiencia educativa y cultural enriquecedora y atractiva para los visitantes del museo.
+    \end{itemize}
+        
+    \section{Alcance del Proyecto}
+    \justifying
+        El proyecto Thot tiene como objetivo desarrollar un sistema interactivo que utilice técnicas de procesamiento de lenguaje natural (NLP)\\
+        y generación de imágenes mediante inteligencia artificial para mejorar la experiencia de los visitantes en la sala Mexica\\
+        del Museo Nacional de Antropología. El sistema permitirá a los usuarios acceder a resúmenes concisos de la información exhibida\\ 
+        y participar en actividades interactivas de trivia.
+     
+    \textbf{Funcionalidades Principales:}
+    \begin{itemize}
+        \item \textbf{Resumenización automatizada de la información}: El sistema procesará textos históricos y descripciones de objetos presentes en la sala Mexica, generando resúmenes cortos que capturen los aspectos más relevantes para los visitantes.
+        \item \textbf{Interacción mediante trivias}: Al final de cada sección de resumen, el sistema presentará una trivia interactiva, con preguntas relacionadas con los temas abordados en la síntesis de información, permitiendo la participación de grupos de visitantes (familias y amigos) en un entorno competitivo y educativo.
+        \item \textbf{Sistema de ranking}: Los visitantes podrán acumular puntos en función de su desempeño en las trivias, generando un ranking que determinará al ganador de la actividad interactiva.
+    \end{itemize}
+        
+    \textbf{Límites del Proyecto:}
+    \begin{itemize}
+        \item Información limitada a la sala Mexica: El sistema se centrará exclusivamente en los contenidos de la sala Mexica del Museo Nacional de Antropología y no abarcará otras salas o colecciones del museo.
+        \item Alcance temporal: La implementación inicial del proyecto estará diseñada para operar durante un periodo de prueba, con la posibilidad de expandir su alcance en función de los resultados obtenidos y el feedback de los usuarios.
+        \item Tecnologías específicas: El sistema utilizará técnicas de procesamiento de lenguaje natural para la síntesis de información y algoritmos de inteligencia artificial para la generación de imágenes. El desarrollo del proyecto se limitará a estas tecnologías y no incluirá hardware adicional más allá de lo necesario para la interacción básica con los usuarios (dispositivos móviles o terminales interactivas).
+    \end{itemize}
+        
+    \textbf{Excepciones:}
+    \begin{itemize}
+        \item El sistema no incluirá interpretación de audios, videos o contenido multimedia, ni permitirá la interacción en tiempo real con guías u otros especialistas.
+    \end{itemize}
+        
+    \textbf{Resultados Esperados:}
+    \begin{itemize}
+        \item Mejora en la experiencia educativa de los visitantes, permitiendo un acceso más ágil y comprensible a la información presentada en la sala Mexica.
+        \item Incremento en la interacción entre grupos de visitantes a través de las trivias y la competencia amistosa, haciendo del aprendizaje una actividad compartida y lúdica.
+        \item Recompensas personalizadas mediante IA que motiven a los usuarios a participar activamente y a mejorar su desempeño.
+    \end{itemize}
+
+\end{document}
