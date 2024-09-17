@@ -133,7 +133,7 @@
      
     \textbf{Funcionalidades Principales:}
     \begin{itemize}
-        \item \textbf{Resumenización automatizada de la información}: El sistema procesará textos históricos y descripciones de objetos presentes en la sala Mexica, generando resúmenes cortos que capturen los aspectos más relevantes para los visitantes.
+        \item \textbf{Sintetización automatizada de la información}: El sistema procesará textos históricos y descripciones de objetos presentes en la sala Mexica, generando resúmenes cortos que capturen los aspectos más relevantes para los visitantes.
         \item \textbf{Interacción mediante trivias}: Al final de cada sección de resumen, el sistema presentará una trivia interactiva, con preguntas relacionadas con los temas abordados en la síntesis de información, permitiendo la participación de grupos de visitantes (familias y amigos) en un entorno competitivo y educativo.
         \item \textbf{Sistema de ranking}: Los visitantes podrán acumular puntos en función de su desempeño en las trivias, generando un ranking que determinará al ganador de la actividad interactiva.
     \end{itemize}
@@ -159,7 +159,30 @@
 
     \newpage
     %% Entregable 2
-    
+
+    \section{Análisis de Requerimientos}
+    \subsection*{Requerimientos Funcionales}
+    \begin{itemize}
+        \item Usuarios: El sistema será utilizado por un público diverso, lo que implica que la interfaz debe ser intuitiva y amigable para todas las edades. Además, el contenido debe ser adaptable para diferentes niveles de comprensión.
+        \item Acceso a la información: Se destaca que el sistema será accesible desde un sitio web y funcionará a través de códigos QR, lo que permite una experiencia personalizada para cada usuario. Solo estará disponible en español inicialmente, pero es importante tener en cuenta una posible expansión multilingüe en el futuro.
+        \item Interacción con el usuario: El proceso de interacción es simple: los usuarios escanean códigos QR para recolectar información de su interés y luego participar en una trivia. Este sistema es atractivo, ya que recompensa con imágenes personalizadas (fondo de pantalla) a aquellos usuarios que obtienen buenos puntajes.
+        \item Generación de imágenes y trivia: Las imágenes generadas solo serán una recompensa al finalizar la trivia, lo que refuerza la motivación del usuario para interactuar con el sistema. El proceso está bien estructurado: el usuario escanea información, completa la trivia y, si su puntuación es alta, recibe la imagen personalizada.
+        \item Personalización: Personalizar la información en función de la edad del usuario y ajustar la trivia a lo que ha escaneado asegura que la experiencia sea relevante para cada visitante. Además, mostrar las respuestas correctas con justificaciones al final de la trivia fomenta la curiosidad y el aprendizaje.
+    \end{itemize}
+    \subsection*{Requerimientos No Funcionales}
+    \begin{itemize}
+        \item Actualización de contenido: Como la sala no cambia frecuentemente, no es necesario realizar actualizaciones frecuentes del contenido.
+        \item Accesibilidad: Aunque inicialmente no hay consideraciones para accesibilidad, la futura inclusión de una opción de audio sería una mejora valiosa para personas con discapacidades visuales o problemas de lectura.
+        \item Rendimiento: El sistema debe ser rápido, con tiempos de respuesta menores a 3 segundos para mantener la atención de los usuarios. También debe ser capaz de manejar hasta 1000 usuarios simultáneos, lo cual es importante en temporadas altas.
+        \item Disponibilidad: El sistema solo estará disponible durante las horas de operación del museo, lo que puede reducir la demanda sobre la infraestructura, pero requiere una gestión eficiente durante los momentos pico.
+        \item Seguridad y privacidad: No se almacenará información personal más allá de la edad del usuario y los datos se eliminarán al salir del museo.
+        \item Escalabilidad: El sistema debe ser escalable para otras salas del museo, pero no se espera que la información cambie a menudo, lo que facilita la planificación de la infraestructura.
+        \item Mantenimiento: Se planean mantenimientos cada 6 meses para la actualización de la base de datos y la corrección de errores, lo que parece suficiente dado el contenido estático del proyecto. Sin un equipo de soporte dedicado, la robustez del sistema será clave.
+        \item Integración: La integración en la página web del museo es crucial para garantizar un fácil acceso. Además, no se requiere interactuar con otras tecnologías del museo, simplificando la implementación.
+    \end{itemize}
+
+    \newpage
+
     \section{Calendarización de Actividades}
 
     \section*{Fase 1: Planificación y Análisis}
