@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1726545627.6054 "/Users/aldoescamillaresendiz/Documents/Info_Synth_NLP/museo.tex" "latex/museo.pdf" "museo" 1726545628.25572 0
-  "/Users/aldoescamillaresendiz/Documents/Info_Synth_NLP/museo.tex" 1726545627.34867 28637 624bcd2fb185e6fb91e90c57c0923164 ""
+["pdflatex"] 1726545802.27891 "/Users/aldoescamillaresendiz/Documents/Info_Synth_NLP/museo.tex" "latex/museo.pdf" "museo" 1726545802.94553 0
+  "/Users/aldoescamillaresendiz/Documents/Info_Synth_NLP/museo.tex" 1726545802.06884 28636 def623ff7780fdc9557d0b206faa9d59 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -101,10 +101,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1712769880.7575 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1712769853 8221419 e9707183ec6435af0f1bb4b83cdf10ff ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "latex/museo.aux" 1726545628.20291 2015 f2d6c90938c88fbe1af3dde4d0378826 "pdflatex"
-  "latex/museo.out" 1726545628.20396 2515 f0137ce921d41ed0256da45db105104d "pdflatex"
-  "latex/museo.toc" 1726545628.20414 1187 33864dc51d709dda392be94edf6d28f7 "pdflatex"
-  "museo.tex" 1726545627.34867 28637 624bcd2fb185e6fb91e90c57c0923164 ""
+  "latex/museo.aux" 1726545802.89269 2015 f2d6c90938c88fbe1af3dde4d0378826 "pdflatex"
+  "latex/museo.out" 1726545802.89374 2515 f0137ce921d41ed0256da45db105104d "pdflatex"
+  "latex/museo.toc" 1726545802.89395 1187 33864dc51d709dda392be94edf6d28f7 "pdflatex"
+  "museo.tex" 1726545802.06884 28636 def623ff7780fdc9557d0b206faa9d59 ""
   (generated)
   "latex/museo.aux"
   "latex/museo.log"
