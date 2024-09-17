@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1726579583.41222 "/Users/aldoescamillaresendiz/Documents/Info_Synth_NLP/AnalisisReq.tex" "latex/AnalisisReq.pdf" "AnalisisReq" 1726579584.05228 0
-  "/Users/aldoescamillaresendiz/Documents/Info_Synth_NLP/AnalisisReq.tex" 1726579583.19783 18836 045806c1e0dffbb6f8a74e899b73036f ""
+["pdflatex"] 1726579703.17165 "/Users/aldoescamillaresendiz/Documents/Info_Synth_NLP/AnalisisReq.tex" "latex/AnalisisReq.pdf" "AnalisisReq" 1726579703.85403 0
+  "/Users/aldoescamillaresendiz/Documents/Info_Synth_NLP/AnalisisReq.tex" 1726579702.96272 18677 90c3912ddd33e5c9b21076a5a30a2fdb ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -101,10 +101,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1712769880.7575 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1712769853 8221419 e9707183ec6435af0f1bb4b83cdf10ff ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "AnalisisReq.tex" 1726579583.19783 18836 045806c1e0dffbb6f8a74e899b73036f ""
-  "latex/AnalisisReq.aux" 1726579584.00112 1442 26e53ed1354db483da8de83996c52cbe "pdflatex"
-  "latex/AnalisisReq.out" 1726579584.00213 1895 f51ea93fa9d02061c097d95c7966f5b4 "pdflatex"
-  "latex/AnalisisReq.toc" 1726579584.00231 820 e8678eb3eef3ce41ea9fe47b1f668be0 "pdflatex"
+  "AnalisisReq.tex" 1726579702.96272 18677 90c3912ddd33e5c9b21076a5a30a2fdb ""
+  "latex/AnalisisReq.aux" 1726579703.80137 1442 26e53ed1354db483da8de83996c52cbe "pdflatex"
+  "latex/AnalisisReq.out" 1726579703.80239 1895 f51ea93fa9d02061c097d95c7966f5b4 "pdflatex"
+  "latex/AnalisisReq.toc" 1726579703.80257 820 e8678eb3eef3ce41ea9fe47b1f668be0 "pdflatex"
   (generated)
   "latex/AnalisisReq.aux"
   "latex/AnalisisReq.log"
