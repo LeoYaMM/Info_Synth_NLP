@@ -1,0 +1,6 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{2}{section.0.1}%
+\contentsline {section}{\numberline {2}Problemática}{2}{section.0.2}%
+\contentsline {section}{\numberline {3}Objetivos}{2}{section.0.3}%
+\contentsline {section}{\numberline {4}Solución de Propuesta}{3}{section.0.4}%
+\contentsline {section}{\numberline {5}Alcance del Proyecto}{3}{section.0.5}%
