@@ -1,0 +1,272 @@
+
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{ragged2e} 
+\usepackage{lipsum}
+    
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.95}
+    
+\lstset{
+        basicstyle=\ttfamily,
+        inputencoding=utf8,
+        extendedchars=true,
+        literate=%
+        {á}{{\'a}}1
+        {é}{{\'e}}1
+        {í}{{\'i}}1
+        {ó}{{\'o}}1
+        {ú}{{\'u}}1
+        {ñ}{{\~n}}1
+        {Á}{{\'A}}1
+        {É}{{\'E}}1
+        {Í}{{\'I}}1
+        {Ó}{{\'O}}1
+        {Ú}{{\'U}}1
+        {Ñ}{{\~N}}1
+}
+    
+\lstdefinestyle{mystyle}{
+        backgroundcolor=\color{backcolor},
+        commentstyle=\color{codegreen},
+        keywordstyle=\color{red},
+        numberstyle=\tiny\color{codegray},
+        stringstyle=\color{codepurple},
+        basicstyle=\ttfamily\footnotesize,
+        breakatwhitespace=false,
+        breaklines=true,
+        captionpos=b,
+        keepspaces=true,
+        numbers=left,
+        showspaces=false,
+        showstringspaces=false,
+        showtabs=false,
+        tabsize=2  
+}
+    
+    \titleformat{\section}
+    {\huge\bfseries}{\thesection.}{1em}{}
+    \titleformat{\subsection}
+    {\large\bfseries}{\thesubsection}{1em}{}
+    
+    \renewcommand\thesection{\arabic{section}}
+    
+    \title{\Huge{\textbf{Thot: Sistema de Sintetización de Información en la Sala Mexica del Museo Nacional de Antropología mediante Técnicas de Lenguaje Natural}}\\
+    \Large{\textbf{Ingeniería de Software Para Sistemas Intelgentes}}}
+    \author{Diego Castillo Reyes\\Marthon Leobardo Yañez Martinez\\Aldo Escamilla Resendiz}
+    
+    \graphicspath{{imagenes/}}
+    
+    \begin{document}
+        \maketitle
+        \tableofcontents
+        \newpage
+        \justifying 
+        \section{Análisis de Requerimientos}
+    \subsection*{Requerimientos Funcionales}
+    \begin{itemize}
+        \item Usuarios: El sistema será utilizado por un público diverso, lo que implica que la interfaz debe ser intuitiva y amigable para todas las edades. Además, el contenido debe ser adaptable para diferentes niveles de comprensión.
+        \item Acceso a la información: Se destaca que el sistema será accesible desde un sitio web y funcionará a través de códigos QR, lo que permite una experiencia personalizada para cada usuario. Solo estará disponible en español inicialmente, pero es importante tener en cuenta una posible expansión multilingüe en el futuro.
+        \item Interacción con el usuario: El proceso de interacción es simple: los usuarios escanean códigos QR para recolectar información de su interés y luego participar en una trivia. Este sistema es atractivo, ya que recompensa con imágenes personalizadas (fondo de pantalla) a aquellos usuarios que obtienen buenos puntajes.
+        \item Generación de imágenes y trivia: Las imágenes generadas solo serán una recompensa al finalizar la trivia, lo que refuerza la motivación del usuario para interactuar con el sistema. El proceso está bien estructurado: el usuario escanea información, completa la trivia y, si su puntuación es alta, recibe la imagen personalizada.
+        \item Personalización: Personalizar la información en función de la edad del usuario y ajustar la trivia a lo que ha escaneado asegura que la experiencia sea relevante para cada visitante. Además, mostrar las respuestas correctas con justificaciones al final de la trivia fomenta la curiosidad y el aprendizaje.
+    \end{itemize}
+    \subsection*{Requerimientos No Funcionales}
+    \begin{itemize}
+        \item Actualización de contenido: Como la sala no cambia frecuentemente, no es necesario realizar actualizaciones frecuentes del contenido.
+        \item Accesibilidad: Aunque inicialmente no hay consideraciones para accesibilidad, la futura inclusión de una opción de audio sería una mejora valiosa para personas con discapacidades visuales o problemas de lectura.
+        \item Rendimiento: El sistema debe ser rápido, con tiempos de respuesta menores a 3 segundos para mantener la atención de los usuarios. También debe ser capaz de manejar hasta 1000 usuarios simultáneos, lo cual es importante en temporadas altas.
+        \item Disponibilidad: El sistema solo estará disponible durante las horas de operación del museo, lo que puede reducir la demanda sobre la infraestructura, pero requiere una gestión eficiente durante los momentos pico.
+        \item Seguridad y privacidad: No se almacenará información personal más allá de la edad del usuario y los datos se eliminarán al salir del museo.
+        \item Escalabilidad: El sistema debe ser escalable para otras salas del museo, pero no se espera que la información cambie a menudo, lo que facilita la planificación de la infraestructura.
+        \item Mantenimiento: Se planean mantenimientos cada 6 meses para la actualización de la base de datos y la corrección de errores, lo que parece suficiente dado el contenido estático del proyecto. Sin un equipo de soporte dedicado, la robustez del sistema será clave.
+        \item Integración: La integración en la página web del museo es crucial para garantizar un fácil acceso. Además, no se requiere interactuar con otras tecnologías del museo, simplificando la implementación.
+    \end{itemize}
+
+    \newpage
+
+    \section{Calendarización de Actividades}
+
+    \section*{Fase 1: Planificación y Análisis}
+    \subsection*{Semana del 17 de agosto al 16 de septiembre de 2024 (trabajo previo a la primera entrega)}
+    \textbf{Análisis de Requerimientos Funcionales y No Funcionales (para entrega el 17 de septiembre):}
+    \begin{itemize}
+        \item Reuniones con el equipo para recoger los requerimientos y validarlos (funcional y no funcional).
+        \item Documentación de los requerimientos: identificar la funcionalidad clave de Thot y sus restricciones.
+        \item Estimar el tiempo y costo del proyecto en base al alcance académico.
+    \end{itemize}
+    \textbf{Cálculo del Proyecto:}
+    \begin{itemize}
+        \item Crear el cronograma y definir métricas para las fases del proyecto.
+    \end{itemize}
+    \textbf{Calendarización de Actividades:}
+    \begin{itemize}
+        \item Crear el cronograma detallado usando una herramienta de gestión de proyectos (Trello, Asana, Gantt).
+    \end{itemize}
+
+    \section*{Fase 2: Análisis del Proyecto}
+    \subsection*{Semana del 18 de septiembre al 23 de septiembre de 2024 (trabajo previo a la segunda entrega)}
+    \textbf{Análisis Inicial del Proyecto (para entrega el 24 de septiembre):}
+    \begin{itemize}
+        \item \textbf{Modelo de Procesos:} Diagramar los procesos internos del sistema simulado (cómo se moverán los datos dentro del sistema).
+        \item \textbf{Modelo de Datos:} Diseño preliminar del esquema de datos, incluyendo cómo se manejarán los datos de la trivia y los resúmenes.
+        \item Validar y ajustar el análisis con el equipo.
+    \end{itemize}
+
+    \section*{Fase 3: Diseño del Sistema}
+    \subsection*{Semana del 25 de septiembre al 30 de septiembre de 2024 (trabajo previo a la tercera entrega)}
+    \textbf{Análisis del Sistema (para entrega el 1 de octubre):}
+    \begin{itemize}
+        \item \textbf{Modelo Funcional:} Documentar cómo los componentes del sistema interactuarán entre sí.
+        \item \textbf{Modelo de Entrada/Salida:} Detallar el flujo de datos, describiendo la simulación de entrada de datos sobre la Sala Mexica y la salida a los usuarios.
+        \item \textbf{Diseño de Interfaces:} Prototipos iniciales para el sistema interactivo.
+    \end{itemize}
+
+    \subsection*{Semana del 2 de octubre al 7 de octubre de 2024 (trabajo previo a la cuarta entrega)}
+    \textbf{Diseño Inicial del Sistema (para entrega el 8 de octubre):}
+    \begin{itemize}
+        \item \textbf{Diseño Operativo:} Planificar la arquitectura del sistema simulado, considerando la interacción entre módulos (NLP, trivia, interfaz).
+        \item \textbf{Diseño de Interfaces:} Crear wireframes para las pantallas del sistema interactivo.
+    \end{itemize}
+
+    \subsection*{Semana del 9 de octubre al 14 de octubre de 2024 (trabajo previo a la quinta entrega)}
+    \textbf{Diseño Completo del Sistema (para entrega el 15 de octubre):}
+    \begin{itemize}
+        \item \textbf{Diseño Funcional:} Detallar cómo funcionarán los módulos clave como el procesamiento de lenguaje natural y el sistema de trivia.
+        \item \textbf{Diseño Operativo:} Optimizar la arquitectura del sistema para su simulación en el entorno académico.
+    \end{itemize}
+
+    \section*{Fase 4: Implementación y Desarrollo}
+    \subsection*{Semana del 16 de octubre al 30 de octubre de 2024}
+    \textbf{Desarrollo del Módulo de Procesamiento de Lenguaje Natural:}
+    \begin{itemize}
+        \item Implementar el sistema para la extracción y resumen de información usando datos simulados.
+        \item Pruebas iniciales del procesamiento de textos.
+    \end{itemize}
+
+    \subsection*{Semana del 1 al 14 de noviembre de 2024}
+    \textbf{Desarrollo del Módulo de Trivia:}
+    \begin{itemize}
+        \item Implementar el generador de preguntas de trivia y el sistema de ranking.
+        \item Pruebas unitarias para verificar la funcionalidad de la trivia.
+    \end{itemize}
+
+    \subsection*{Semana del 15 al 30 de noviembre de 2024}
+    \textbf{Desarrollo del Sistema de Interfaz:}
+    \begin{itemize}
+        \item Implementar la interfaz de usuario y conectar los módulos de resumen y trivia.
+        \item Pruebas iniciales del sistema en un entorno simulado.
+    \end{itemize}
+
+    \section*{Fase 5: Integración, Pruebas y Validación}
+    \subsection*{Semana del 1 al 14 de diciembre de 2024}
+    \textbf{Pruebas de Integración:}
+    \begin{itemize}
+        \item Integrar todos los módulos y realizar pruebas para verificar su correcta interacción.
+    \end{itemize}
+    \textbf{Pruebas Funcionales:}
+    \begin{itemize}
+        \item Verificar el funcionamiento completo del sistema y realizar ajustes según los resultados de las pruebas.
+    \end{itemize}
+
+    \subsection*{Semana del 15 al 23 de diciembre de 2024}
+    \textbf{Pruebas en Entorno Simulado:}
+    \begin{itemize}
+        \item Ejecutar pruebas de usuario en un entorno completamente simulado, asegurando que todo funcione según lo planeado.
+        \item Ajustes finales en función de los resultados obtenidos en las pruebas.
+    \end{itemize}
+
+    \section*{Fase 6: Entrega Final y Presentación}
+    \subsection*{Semana del 24 al 30 de diciembre de 2024}
+    \textbf{Optimización Final:}
+    \begin{itemize}
+        \item Mejorar el rendimiento y corregir errores restantes.
+        \item Finalizar la documentación del proyecto académico (manual técnico y de usuario).
+    \end{itemize}
+
+    \subsection*{Semana del 31 de diciembre de 2024 al 7 de enero de 2025}
+    \textbf{Preparación para la Entrega:}
+    \begin{itemize}
+        \item Preparar la presentación del proyecto y demostrar el sistema funcionando en un entorno simulado.
+    \end{itemize}
+
+    \subsection*{10 de enero de 2025}
+    \textbf{Entrega Final del Proyecto:}
+    \begin{itemize}
+        \item Presentación formal del sistema Thot como parte del proyecto escolar.
+    \end{itemize}
+
+    \section{Cálculo del Proyecto}
+    \subsection{Métricas de Desempeño del Proyecto Thot}
+
+    \justify
+    \textbf{Tiempo estimado vs. tiempo real}: Se espera que el desarrollo del proyecto Thot concluya en un plazo de seis meses, considerando que el equipo de desarrollo estará compuesto por tres personas trabajando a tiempo parcial. El tiempo estimado se ha distribuido en varias fases, que incluyen la recolección de datos, el desarrollo de los algoritmos de Procesamiento de Lenguaje Natural (NLP), la implementación del sistema de trivia y las pruebas finales. Esta métrica compara el tiempo planeado para cada fase con el tiempo real que se empleó para completarlas. Si se encuentran desviaciones significativas, será necesario hacer ajustes en el calendario para asegurar que el proyecto se mantenga dentro del plazo.
+
+    \justify
+    \textbf{Porcentaje de avance}: El proyecto se ha dividido en cinco fases principales: diseño del sistema, desarrollo de la síntesis de información, desarrollo del sistema de trivia, pruebas y optimización final. El porcentaje de avance indicará qué proporción del proyecto ha sido completada en cada una de estas fases, en comparación con el total planificado. Por ejemplo, al finalizar la primera fase, se espera que aproximadamente el 20\% del proyecto esté completo. Esta métrica permitirá monitorear el progreso general del desarrollo.
+
+    \justify
+    \textbf{Número de tareas completadas vs. pendientes}: El proyecto está organizado en tareas específicas, como la implementación de los resúmenes basados en NLP y la integración del sistema con el sitio web del museo. Esta métrica mide cuántas tareas han sido completadas en comparación con las que están pendientes. Se espera que el equipo realice un seguimiento semanal del número de tareas finalizadas, lo que permitirá mantener el control del proyecto y tomar decisiones a tiempo si se detecta algún retraso.
+
+    \subsection{Métricas de Calidad del Proyecto Thot}
+
+    \justify
+    \textbf{Errores detectados}: Durante el desarrollo del proyecto Thot, se realizarán al menos tres ciclos de pruebas: pruebas internas por parte del equipo de desarrollo, pruebas de usuario con un grupo reducido de visitantes seleccionados, y pruebas en condiciones reales en el museo. Esta métrica cuantifica el número de errores detectados en cada ciclo de pruebas, como fallos en la generación de resúmenes o errores en el sistema de trivia. El objetivo es reducir el número de errores críticos a menos de cinco en la fase final de pruebas, lo cual indicará que el sistema es estable y está listo para ser implementado.
+
+    \justify
+    \textbf{Satisfacción del usuario}: Una vez que el sistema esté en funcionamiento en el museo, se recogerán opiniones de los usuarios a través de encuestas y formularios disponibles en el sitio web del museo. La meta es alcanzar un nivel de satisfacción del usuario del 80\% o más, evaluando aspectos como la facilidad de uso, la claridad de los resúmenes proporcionados y el entretenimiento del sistema de trivia. Esta métrica ayudará a asegurar que el sistema Thot cumpla con las expectativas educativas y de interacción de los visitantes.
+
+    \justify
+    \textbf{Tasas de revisión y corrección}: Durante el proceso de desarrollo y pruebas, el equipo revisará las funcionalidades clave del sistema para detectar y corregir posibles fallos. Esta métrica mide cuántas veces se realizaron revisiones y correcciones en el sistema. Se espera que después del primer ciclo de pruebas, al menos el 60\% de las correcciones sean menores, lo que indicaría que el sistema está bien estructurado y que las correcciones significativas se realizaron en las fases iniciales.
+
+    \subsection{Métricas de Costos del Proyecto Thot}
+
+    \justify
+    \textbf{Costo planeado vs. costo real}: El presupuesto total del proyecto Thot se estima en \$100,000 MXN, incluyendo costos de desarrollo, pruebas y mantenimiento. Esta métrica compara los costos reales incurridos en cada fase del proyecto con los costos previstos. Por ejemplo, si se estimaron \$30,000 MXN para la fase de pruebas, pero se gastaron \$35,000 MXN, será necesario ajustar el presupuesto de las fases siguientes para evitar que el costo total exceda el presupuesto estimado.
+
+    \justify
+    \textbf{Costo por tarea/unidad}: Cada tarea o funcionalidad del sistema tendrá un costo asociado, ya sea en términos de horas de desarrollo o en costos directos (como licencias de software o infraestructura). Por ejemplo, se estima que el desarrollo del sistema de trivia costará \$10,000 MXN en total, considerando tanto la implementación como las pruebas. Esta métrica ayuda a identificar qué tareas están consumiendo más recursos de lo previsto y permite realizar ajustes para mantener el control financiero del proyecto.
+
+    \justify
+    \textbf{Desviación presupuestaria}: Esta métrica mide la diferencia entre el costo presupuestado y el costo real. Se ha establecido que la desviación máxima permitida será del 10\% sobre el presupuesto total del proyecto. Si la desviación supera este límite, se deberá justificar y tomar medidas para corregir el curso del proyecto, ya que la meta es evitar cualquier sobrecoste significativo que impacte el desarrollo o la implementación.
+
+    \subsection{Métricas de Productividad del Proyecto Thot}
+
+    \justify
+    \textbf{Tasa de productividad por equipo o individuo}: Se espera que cada miembro del equipo de desarrollo complete un número determinado de tareas cada semana. Esta métrica mide cuántas tareas fueron finalizadas en comparación con el tiempo invertido. Por ejemplo, si a un desarrollador se le asignaron 10 tareas y completó solo 5 en una semana, se evaluará si la carga de trabajo es adecuada o si existen barreras que están afectando su productividad. Esta métrica permite medir la eficiencia individual y del equipo en general.
+
+    \justify
+    \textbf{Velocidad de desarrollo}: La velocidad de desarrollo se medirá en cada fase del proyecto, indicando cuántas funcionalidades fueron implementadas dentro del plazo establecido. Por ejemplo, la fase de implementación del sistema de resúmenes y trivias tiene un tiempo estimado de dos meses, y esta métrica monitoreará si el equipo ha logrado completar el 80\% de las funcionalidades en ese tiempo. Una velocidad de desarrollo consistente asegura que el proyecto se mantenga dentro del plazo.
+
+    \subsection{Métricas de Riesgo del Proyecto Thot}
+
+    \justify
+    \textbf{Número de riesgos identificados}: Al comienzo del proyecto se identificaron varios riesgos potenciales, como la dificultad para integrar el sistema con la infraestructura tecnológica del museo o posibles problemas con la precisión del procesamiento de lenguaje natural. Esta métrica cuantifica cuántos riesgos se han identificado durante el desarrollo del sistema. Se espera identificar los riesgos clave en las fases iniciales del proyecto para que puedan ser mitigados antes de causar problemas mayores.
+
+    \justify
+    \textbf{Impacto de riesgos mitigados}: Esta métrica evalúa la efectividad de las medidas implementadas para mitigar los riesgos. Por ejemplo, para evitar sobrecargas en los servidores del museo, se podría integrar un sistema de caché. El impacto de estas medidas se medirá por la reducción del riesgo, con el objetivo de disminuir la probabilidad de fallos en un 80\%. Esta métrica es esencial para asegurar que el proyecto avance sin interrupciones graves y que los riesgos sean gestionados adecuadamente.
+
+
+            
+            
+            
+            
+
+
+\end{document}
