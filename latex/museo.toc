@@ -4,3 +4,4 @@
 \contentsline {section}{\numberline {3}Objetivos}{2}{section.0.3}%
 \contentsline {section}{\numberline {4}Solución de Propuesta}{3}{section.0.4}%
 \contentsline {section}{\numberline {5}Alcance del Proyecto}{3}{section.0.5}%
+\contentsline {section}{\numberline {6}Calendarización de Actividades}{5}{section.0.6}%
