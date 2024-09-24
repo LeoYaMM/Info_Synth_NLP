@@ -40,7 +40,7 @@ h4 {
     border-bottom-width: medium;
     border-bottom-style: none;
     border-bottom: 1px solid rgba(149, 152, 154, 0.2);
-    border-radius: 0;
+    border-radius: 5px;
     outline: none;
     height: 2rem;
     width: 25%;
