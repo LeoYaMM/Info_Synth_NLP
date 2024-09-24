@@ -77,10 +77,16 @@
 \section{Modelo de Procesos}
 \subsection*{Diagrama de Secuencia}
 A continuación de mostrará el diagrama de secuencia donde se
-muestra el proceso del sistema, desde el permiso para activar la cámara, hasta la finalización de la sala.
+muestra el proceso del sistema:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Diagrama de secuencia.png}
     \caption{Diagrama de Secuencia}
 \end{figure}
+\subsection*{Descripción de Procesos}
+\begin{itemize}
+    \item Inicio del recorrido: El usuario ingresa su edad, el sistema guarda el dato y le permite escanear el QR de inicio de sala.
+    \item Recorrido interactivo: A medida que el usuario escanea los QR de la exposición, el sistema Thot genera resúmenes personalizados que se muestran en la interfaz del usuario.
+    \item Finalización del recorrido: El usuario escanea el QR de salida, el servidor valida el escaneo y elimina los datos del usuario. Finalmente, el sistema muestra un mensaje de despedida al usuario.
+\end{itemize}
 \end{document}
