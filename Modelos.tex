@@ -89,4 +89,98 @@ muestra el proceso del sistema:
     \item Recorrido interactivo: A medida que el usuario escanea los QR de la exposición, el sistema Thot genera resúmenes personalizados que se muestran en la interfaz del usuario.
     \item Finalización del recorrido: El usuario escanea el QR de salida, el servidor valida el escaneo y elimina los datos del usuario. Finalmente, el sistema muestra un mensaje de despedida al usuario.
 \end{itemize}
+
+\newpage
+
+\section{Modelo de Datos}
+\subsection*{Diagrama de Entidad-Relación}
+
+A continuación se muestra el diagrama de entidad-relación del sistema:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Entidad-Relación Museo.png}
+    \caption{Diagrama de Entidad-Relación}
+\end{figure}
+
+\subsection*{Descripción de Entidades y Relaciones}
+
+\begin{enumerate}
+    \item \textbf{Entidad Visitante}:
+    \begin{itemize}
+        \item Representa a los usuarios que interactúan con el sistema.
+        \item \textbf{Atributos}:
+        \begin{itemize}
+            \item \texttt{ID\_visitante}: Identificador único.
+            \item \texttt{Nombre}: Nombre del visitante.
+            \item \texttt{Edad}: Edad del visitante.
+            \item \texttt{Puntuación\_trivia}: Puntuación acumulada en trivias.
+        \end{itemize}
+        \item \textbf{Relación con Actividad (1:N)}: Un visitante puede realizar múltiples actividades, pero cada actividad está relacionada con un solo visitante.
+    \end{itemize}
+
+    \item \textbf{Entidad Actividad}:
+    \begin{itemize}
+        \item Representa una acción realizada por el visitante, como participar en una trivia o explorar un resumen.
+        \item \textbf{Atributos}:
+        \begin{itemize}
+            \item \texttt{Tipo}: Tipo de actividad (e.g., trivia, exploración).
+            \item \texttt{Fecha}: Fecha de realización.
+            \item \texttt{Puntuación\_trivia}: Puntuación obtenida en una trivia específica.
+            \item \texttt{ID\_visitante}: Relación con el visitante que realizó la actividad.
+        \end{itemize}
+        \item \textbf{Relación con Trivia (1:1)}: Cada actividad está asociada a una sola trivia, representando la interacción directa del visitante con el contenido educativo.
+    \end{itemize}
+
+    \item \textbf{Entidad Trivia}:
+    \begin{itemize}
+        \item Representa una serie de preguntas relacionadas con los objetos históricos, diseñadas para probar los conocimientos del visitante.
+        \item \textbf{Atributos}:
+        \begin{itemize}
+            \item \texttt{ID\_trivia}: Identificador único.
+            \item \texttt{Pregunta}: La pregunta de trivia.
+            \item \texttt{Respuesta}: Respuesta correcta.
+            \item \texttt{Opciones}: Posibles respuestas.
+            \item \texttt{Puntuación\_trivia}: Puntuación otorgada por esa trivia.
+        \end{itemize}
+        \item \textbf{Relación con Objeto Histórico (N:N)}: Las preguntas de trivia están relacionadas con uno o más objetos históricos, y un objeto puede estar vinculado con varias trivias.
+    \end{itemize}
+
+    \item \textbf{Entidad Sala}:
+    \begin{itemize}
+        \item Representa las salas del museo donde se encuentran los objetos históricos.
+        \item \textbf{Atributos}:
+        \begin{itemize}
+            \item \texttt{ID\_sala}: Identificador único.
+            \item \texttt{Nombre\_sala}: Nombre de la sala.
+        \end{itemize}
+        \item \textbf{Relación con Objeto Histórico (1:N)}: Cada sala contiene varios objetos históricos, pero cada objeto pertenece a una única sala.
+    \end{itemize}
+
+    \item \textbf{Entidad Objeto Histórico}:
+    \begin{itemize}
+        \item Representa los objetos expuestos en el museo, sobre los cuales se generan resúmenes y trivias.
+        \item \textbf{Atributos}:
+        \begin{itemize}
+            \item \texttt{ID\_objeto}: Identificador único.
+            \item \texttt{Nombre\_objeto}: Nombre del objeto.
+            \item \texttt{Descripción}: Descripción del objeto.
+            \item \texttt{Información}: Información relevante del objeto que se sintetiza en los resúmenes.
+        \end{itemize}
+        \item \textbf{Relación con Resumen (N:N)}: Un objeto puede tener varios resúmenes generados por Thot, y cada resumen puede incluir información sobre varios objetos.
+    \end{itemize}
+
+    \item \textbf{Entidad Resumen}:
+    \begin{itemize}
+        \item Representa los resúmenes generados automáticamente por el sistema Thot a partir de los objetos históricos.
+        \item \textbf{Atributos}:
+        \begin{itemize}
+            \item \texttt{ID\_Resumen}: Identificador único.
+            \item \texttt{Texto}: Contenido resumido.
+            \item \texttt{ID\_objeto}: Relación con el objeto histórico al que pertenece.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+
 \end{document}
