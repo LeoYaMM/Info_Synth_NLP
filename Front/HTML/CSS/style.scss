@@ -1,0 +1,70 @@
+// Variables for colors, fonts, and sizes
+$background-light: #e5e5e5;
+$primary-color: #AE1141;
+$border-color: #e9ecef;
+$box-shadow-color: rgba(149, 152, 154, 0.2);
+$font-family-primary: 'Raleway', sans-serif;
+$font-family-secondary: 'Roboto', sans-serif;
+
+// General styles
+body {
+    background-color: #ffffff;
+    font-family: $font-family-secondary;
+}
+
+// Cabecera styles
+.cabecera {
+    background-color: $background-light;
+    padding: 10px;
+    border-bottom: 1px solid $border-color;
+    text-align: center;
+}
+
+// Titulo styles
+.titulo {
+    font-family: $font-family-primary;
+    font-weight: 600;
+    margin-top: 5rem;
+    color: $primary-color;
+    font-size: 2rem;
+    text-align: center;
+}
+
+// Linea styles
+.linea {
+    width: 20%;
+    height: 2px;
+    margin: 0 auto 5px;
+    max-width: 135px;
+    background-color: $primary-color;
+}
+
+// Typography
+p,
+h4 {
+    font-family: $font-family-secondary;
+}
+
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    unicode-bidi: isolate;
+}
+
+// Inserta styles
+.inserta {
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid $box-shadow-color;
+    border-radius: 5px;
+    outline: none;
+    height: 2rem;
+    width: 25%;
+    font-size: 1rem;
+    margin: 0 5px;
+    padding: 0 1rem;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
