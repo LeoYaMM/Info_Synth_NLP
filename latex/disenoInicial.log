@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.8)  8 OCT 2024 11:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.8)  8 OCT 2024 11:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -502,15 +502,15 @@ Package hyperref Info: Link coloring OFF on input line 75.
 [1
 
 {C:/Users/diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<imagenes/DisenioPreliminar.jpeg, id=22, 1657.19125pt x 1415.2875pt>
+<imagenes/DisenioPreliminar.jpeg, id=18, 1657.19125pt x 1415.2875pt>
 File: imagenes/DisenioPreliminar.jpeg Graphic file (type jpg)
 <use imagenes/DisenioPreliminar.jpeg>
-Package pdftex.def Info: imagenes/DisenioPreliminar.jpeg  used on input line 86.
+Package pdftex.def Info: imagenes/DisenioPreliminar.jpeg  used on input line 82.
 (pdftex.def)             Requested size: 400.38872pt x 341.94347pt.
-<imagenes/Casos de uso.png, id=23, 585.68813pt x 689.57625pt>
+<imagenes/Casos de uso.png, id=19, 585.68813pt x 689.57625pt>
 File: imagenes/Casos de uso.png Graphic file (type png)
 <use imagenes/Casos de uso.png>
-Package pdftex.def Info: imagenes/Casos de uso.png  used on input line 97.
+Package pdftex.def Info: imagenes/Casos de uso.png  used on input line 93.
 (pdftex.def)             Requested size: 400.38872pt x 471.43094pt.
 
 
@@ -518,8 +518,8 @@ Package pdftex.def Info: imagenes/Casos de uso.png  used on input line 97.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.100 
-       [1 <./imagenes/DisenioPreliminar.jpeg>]
+l.96 
+      [1 <./imagenes/DisenioPreliminar.jpeg>]
 
 [2 <./imagenes/Casos de uso.png>]
 
@@ -532,20 +532,20 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-16>
  ***********
 Package rerunfilecheck Info: File `disenoInicial.out' has not changed.
-(rerunfilecheck)             Checksum: 8A27529F8F959B9828F34A350356F2F3;489.
+(rerunfilecheck)             Checksum: 4DBB0A6924102EB8A20C4B3E9E1B3F8B;358.
  ) 
 Here is how much of TeX's memory you used:
- 15370 strings out of 473899
- 250631 string characters out of 5726500
+ 15368 strings out of 473899
+ 250607 string characters out of 5726500
  1936960 words of memory out of 5000000
- 38049 multiletter control sequences out of 15000+600000
+ 38048 multiletter control sequences out of 15000+600000
  564210 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,7n,93p,369b,524s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on "c:\Users\diego\Documentos\ESCOM\Programas\Ingenieria de software para sistemas inteligentes\Info_Synth_NLP\latex\disenoInicial.pdf" (4 pages, 396770 bytes).
+Output written on "c:\Users\diego\Documentos\ESCOM\Programas\Ingenieria de software para sistemas inteligentes\Info_Synth_NLP\latex\disenoInicial.pdf" (4 pages, 396176 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 500000)
- 35 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 59 PDF objects out of 1000 (max. 8388607)
+ 8 named destinations out of 1000 (max. 500000)
+ 27 words of extra memory for PDF output out of 10000 (max. 10000000)
 

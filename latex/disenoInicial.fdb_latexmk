@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1728407490.13591 "c:/Users/diego/Documentos/ESCOM/Programas/Ingenieria de software para sistemas inteligentes/Info_Synth_NLP/disenoInicial.tex" "latex/disenoInicial.pdf" "disenoInicial" 1728407491.30311 0
+["pdflatex"] 1728409867.84357 "c:/Users/diego/Documentos/ESCOM/Programas/Ingenieria de software para sistemas inteligentes/Info_Synth_NLP/disenoInicial.tex" "latex/disenoInicial.pdf" "disenoInicial" 1728409868.85676 0
   "C:/Users/diego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1727766581 87887 fddbb66dde145c1b4d55b50471fd44c5 ""
   "C:/Users/diego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1728402585 24265333 b479879b6350424a65ad22c5e31e1bf1 ""
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -96,12 +96,12 @@
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/tex/latex/tools/tabularx.sty" 1718356376 7243 e5dac1240636811edb77568b81818372 ""
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/diego/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/diego/Documentos/ESCOM/Programas/Ingenieria de software para sistemas inteligentes/Info_Synth_NLP/disenoInicial.tex" 1728407489 6113 32127e2d27878ff5587ea7941e3bfb89 ""
-  "disenoInicial.tex" 1728407489 6113 32127e2d27878ff5587ea7941e3bfb89 ""
+  "c:/Users/diego/Documentos/ESCOM/Programas/Ingenieria de software para sistemas inteligentes/Info_Synth_NLP/disenoInicial.tex" 1728409867 6078 930987774b636704b9ad522664a44bca ""
+  "disenoInicial.tex" 1728409867 6078 930987774b636704b9ad522664a44bca ""
   "imagenes/Casos de uso.png" 1728402330 71515 c91b54a7f7471d8bfb0bb9f6e9ed284f ""
   "imagenes/DisenioPreliminar.jpeg" 1728402438 281091 2a41bffe48c1ed8a9fa1ce8efa090066 ""
-  "latex/disenoInicial.aux" 1728407491 1032 7db3a085e2cef0c45171e42bcffc69ea "pdflatex"
-  "latex/disenoInicial.out" 1728407491 489 8a27529f8f959b9828f34a350356f2f3 "pdflatex"
+  "latex/disenoInicial.aux" 1728409868 916 7584231d52283aef45f3204b6870a894 "pdflatex"
+  "latex/disenoInicial.out" 1728409868 358 4dbb0a6924102eb8a20c4b3e9e1b3f8b "pdflatex"
   (generated)
   "latex/disenoInicial.aux"
   "latex/disenoInicial.log"
