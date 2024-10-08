@@ -1,0 +1,85 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{ragged2e} 
+\usepackage{lipsum}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.95}
+
+\lstset{
+    basicstyle=\ttfamily,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate=%
+    {á}{{\'a}}1
+    {é}{{\'e}}1
+    {í}{{\'i}}1
+    {ó}{{\'o}}1
+    {ú}{{\'u}}1
+    {ñ}{{\~n}}1
+    {Á}{{\'A}}1
+    {É}{{\'E}}1
+    {Í}{{\'I}}1
+    {Ó}{{\'O}}1
+    {Ú}{{\'U}}1
+    {Ñ}{{\~N}}1
+}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolor},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{red},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2  
+}
+
+\titleformat{\section}
+{\huge\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}
+{\large\bfseries}{\thesubsection}{1em}{}
+
+\renewcommand\thesection{\arabic{section}}
+
+\title{\Huge{\textbf{diseño Inicial del Sistema}}\\
+\Large{\textbf{Ingeniería de Software Para Sistemas Intelgentes}}}
+\author{Diego Castillo Reyes\\Marthon Leobardo Yañez Martinez\\Aldo Escamilla Resendiz}
+
+\graphicspath{{imagenes/}}
+
+\begin{document}
+\maketitle
+\section{Diseño Operativo}
+
+
+
+
+\section{Diseño de Interfaces}
+
+
+\end{document}
