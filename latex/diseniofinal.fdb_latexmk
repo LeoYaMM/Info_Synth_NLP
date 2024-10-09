@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1728450563.79434 "c:/Users/yleob/OneDrive - Instituto Politecnico Nacional/Documents/1. Leo/ESCOM/Semestre 6/Aplicaciones de Lenguaje/Info_Synth_NLP/diseniofinal.tex" "latex/diseniofinal.pdf" "diseniofinal" 1728450565.45679 0
+["pdflatex"] 1728453267.59362 "c:/Users/yleob/OneDrive - Instituto Politecnico Nacional/Documents/1. Leo/ESCOM/Semestre 6/Aplicaciones de Lenguaje/Info_Synth_NLP/diseniofinal.tex" "latex/diseniofinal.pdf" "diseniofinal" 1728453269.39004 0
   "C:/Users/yleob/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1726810940 87887 fddbb66dde145c1b4d55b50471fd44c5 ""
   "C:/Users/yleob/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1711557172 11548 3d9640d528fabfacf9c764acc45932d9 ""
   "C:/Users/yleob/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1727136968 11948197 bfdabdb5980d57e2520e187f9cd43f7d ""
@@ -98,10 +98,11 @@
   "C:/Users/yleob/AppData/Local/Programs/MiKTeX/tex/latex/tools/tabularx.sty" 1718356376 7243 e5dac1240636811edb77568b81818372 ""
   "C:/Users/yleob/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/yleob/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/yleob/OneDrive - Instituto Politecnico Nacional/Documents/1. Leo/ESCOM/Semestre 6/Aplicaciones de Lenguaje/Info_Synth_NLP/diseniofinal.tex" 1728450562 8444 256b3bce207e1bf4273c07353d950d18 ""
-  "diseniofinal.tex" 1728450562 8444 256b3bce207e1bf4273c07353d950d18 ""
-  "latex/diseniofinal.aux" 1728450565 617 839301f82aeb853b57f5ba83c9b2f99b "pdflatex"
-  "latex/diseniofinal.out" 1728450565 394 496c4f744e21d678ac9d419ce958bbd5 "pdflatex"
+  "c:/Users/yleob/OneDrive - Instituto Politecnico Nacional/Documents/1. Leo/ESCOM/Semestre 6/Aplicaciones de Lenguaje/Info_Synth_NLP/diseniofinal.tex" 1728453266 8704 45e537d3751fbd8d8bb68ddc0d524021 ""
+  "diseniofinal.tex" 1728453266 8704 45e537d3751fbd8d8bb68ddc0d524021 ""
+  "imagenes/DiagramaSecuenciaExp.png" 1728453173 312664 a210b00bdb4752838aa99a8d05cba257 ""
+  "latex/diseniofinal.aux" 1728453269 804 bbf203083ca2133552f7fc7b91d5c7c6 "pdflatex"
+  "latex/diseniofinal.out" 1728453269 394 496c4f744e21d678ac9d419ce958bbd5 "pdflatex"
   (generated)
   "latex/diseniofinal.aux"
   "latex/diseniofinal.log"
