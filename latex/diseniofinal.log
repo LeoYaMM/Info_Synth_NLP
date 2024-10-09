@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.23)  8 OCT 2024 23:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.23)  9 OCT 2024 00:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -509,7 +509,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.127         \item \textbf
                            {Interacción:} Recibe la señal para eliminar lo... [1]
-<imagenes/DiagramaSecuenciaExp.png, id=24, 758.835pt x 608.9952pt>
+<imagenes/DiagramaSecuenciaExp.png, id=32, 758.835pt x 608.9952pt>
 File: imagenes/DiagramaSecuenciaExp.png Graphic file (type png)
 <use imagenes/DiagramaSecuenciaExp.png>
 Package pdftex.def Info: imagenes/DiagramaSecuenciaExp.png  used on input line 150.
@@ -517,8 +517,29 @@ Package pdftex.def Info: imagenes/DiagramaSecuenciaExp.png  used on input line 1
 
 
 [2]
+<imagenes/interfazSP.jpeg, id=37, 424.58624pt x 767.86874pt>
+File: imagenes/interfazSP.jpeg Graphic file (type jpg)
+<use imagenes/interfazSP.jpeg>
+Package pdftex.def Info: imagenes/interfazSP.jpeg  used on input line 158.
+(pdftex.def)             Requested size: 400.38872pt x 724.14006pt.
 
-[3 <./imagenes/DiagramaSecuenciaExp.png>] (c:\Users\yleob\OneDrive - Instituto Politecnico Nacional\Documents\1. Leo\ESCOM\Semestre 6\Aplicaciones de Lenguaje\Info_Synth_NLP\latex\diseniofinal.aux
+
+[3 <./imagenes/DiagramaSecuenciaExp.png>]
+
+[4]
+Overfull \vbox (132.34215pt too high) has occurred while \output is active []
+
+
+
+[5 <./imagenes/interfazSP.jpeg>]
+<imagenes/interfazTablets.jpeg, id=52, 830.10126pt x 620.3175pt>
+File: imagenes/interfazTablets.jpeg Graphic file (type jpg)
+<use imagenes/interfazTablets.jpeg>
+Package pdftex.def Info: imagenes/interfazTablets.jpeg  used on input line 165.
+(pdftex.def)             Requested size: 400.38872pt x 299.1972pt.
+
+
+[6 <./imagenes/interfazTablets.jpeg>] (c:\Users\yleob\OneDrive - Instituto Politecnico Nacional\Documents\1. Leo\ESCOM\Semestre 6\Aplicaciones de Lenguaje\Info_Synth_NLP\latex\diseniofinal.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -527,20 +548,20 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `diseniofinal.out' has not changed.
-(rerunfilecheck)             Checksum: 496C4F744E21D678AC9D419CE958BBD5;394.
+(rerunfilecheck)             Checksum: CBF97619B13156DEB754B4C83A6DD70E;744.
  ) 
 Here is how much of TeX's memory you used:
- 15361 strings out of 473899
- 250711 string characters out of 5726500
+ 15392 strings out of 473899
+ 251458 string characters out of 5726500
  763640 words of memory out of 5000000
- 38041 multiletter control sequences out of 15000+600000
- 564238 words of font info for 57 fonts, out of 8000000 for 9000
+ 38065 multiletter control sequences out of 15000+600000
+ 564545 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  79i,7n,93p,423b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\yleob\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/yleob/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/yleob/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/yleob/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/yleob/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on "c:\Users\yleob\OneDrive - Instituto Politecnico Nacional\Documents\1. Leo\ESCOM\Semestre 6\Aplicaciones de Lenguaje\Info_Synth_NLP\latex\diseniofinal.pdf" (4 pages, 378659 bytes).
+Output written on "c:\Users\yleob\OneDrive - Instituto Politecnico Nacional\Documents\1. Leo\ESCOM\Semestre 6\Aplicaciones de Lenguaje\Info_Synth_NLP\latex\diseniofinal.pdf" (7 pages, 488336 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 7 named destinations out of 1000 (max. 500000)
- 22 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 87 PDF objects out of 1000 (max. 8388607)
+ 14 named destinations out of 1000 (max. 500000)
+ 48 words of extra memory for PDF output out of 10000 (max. 10000000)
 
