@@ -35,13 +35,14 @@ def obtener_exposiciones(conexion):
     except Error as e:
         print(f"Error al obtener los datos: {e}")
 
-# Uso del script
-conexion = conectar_bd()
+# Ejemplo de uso del script
+# conexion = conectar_bd()
 
-if conexion:
-    exposiciones = obtener_exposiciones(conexion)
-    for exposicion in exposiciones:
-        print(f"ID: {exposicion['id']}, Nombre: {exposicion['nombre']}, Descripción: {exposicion['descripcion']}, Sala: {exposicion['sala']}")
+# if conexion:
+#     exposiciones = obtener_exposiciones(conexion)
+#     for exposicion in exposiciones:
+#         print(f"ID: {exposicion['id']}, Nombre: {exposicion['nombre']}, Descripción: {exposicion['descripcion']}, Sala: {exposicion['sala']}")
 
-    # Cerrar la conexión al finalizar
-    cerrar_conexion(conexion)
+#     # Cerrar la conexión al finalizar
+#     cerrar_conexion(conexion)
+# El output resultante: ID, Elemento expuesto, Descripcion, Sala
