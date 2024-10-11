@@ -53,6 +53,18 @@ def obtener_exposiciones(conexion):
     except Error as e:
         print(f"Error al obtener los datos: {e}")
 
+def obtener_usuarios(conexion):
+    try:
+        cursor = conexion.cursor(dictionary=True)  # Para que devuelva los resultados en formato de diccionario
+        cursor.execute("SELECT * FROM Usuarios")
+
+        usuarios = cursor.fetchall()
+        return usuarios
+
+    except Error as e:
+        print(f"Error al obtener los datos: {e}")
+
+
 # Ejemplo de uso del script
 # conexion = conectar_bd_museo()
 
