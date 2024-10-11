@@ -54,7 +54,7 @@ def obtener_exposiciones(conexion):
         print(f"Error al obtener los datos: {e}")
 
 # Ejemplo de uso del script
-# conexion = conectar_bd()
+# conexion = conectar_bd_museo()
 
 # if conexion:
 #     exposiciones = obtener_exposiciones(conexion)
