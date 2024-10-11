@@ -1,6 +1,6 @@
 import hashlib
 import qrcode
-from sqlConnector import conectar_bd, cerrar_conexion, obtener_exposiciones
+from sqlConnector import conectar_bd_museo, cerrar_conexion, obtener_exposiciones
 
 # Función para generar el hash basado en el ID de la exposición
 def generar_hash_exposicion(id_exposicion):
@@ -20,11 +20,11 @@ def generar_qr(hash_exposicion, nombre_archivo):
 # Función principal que une todo
 def main():
     # Conectar a la base de datos
-    conexion = conectar_bd()
+    conexion_museo = conectar_bd_museo()
     
-    if conexion:
+    if conexion_museo:
         # Obtener las exposiciones de la base de datos
-        exposiciones = obtener_exposiciones(conexion)
+        exposiciones = obtener_exposiciones(conexion_museo)
 
         for exposicion in exposiciones:
             id_exposicion = exposicion['id']
@@ -40,7 +40,7 @@ def main():
             print(f"QR generado para '{nombre_exposicion}' (ID: {id_exposicion}), guardado como {nombre_archivo}")
         
         # Cerrar la conexión con la base de datos
-        cerrar_conexion(conexion)
+        cerrar_conexion(conexion_museo)
 
 if __name__ == "__main__":
     main()

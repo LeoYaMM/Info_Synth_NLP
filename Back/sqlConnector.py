@@ -1,12 +1,30 @@
 import mysql.connector
 from mysql.connector import Error
 
-def conectar_bd():
+def conectar_bd_museo():
     try:
         # Establece la conexión con la base de datos
         conexion = mysql.connector.connect(
             host='127.0.0.1',         
             database='museo',         
+            user='root',        
+            password='Blow85**'  
+        )
+
+        if conexion.is_connected():
+            print("Conexión exitosa a la base de datos")
+            return conexion
+
+    except Error as e:
+        print(f"Error al conectarse a MySQL: {e}")
+        return None
+
+def conectar_bd_usuarios():
+    try:
+        # Establece la conexión con la base de datos
+        conexion = mysql.connector.connect(
+            host='127.0.0.1',         
+            database='usuarios',         
             user='root',        
             password='Blow85**'  
         )
