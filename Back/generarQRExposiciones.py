@@ -35,8 +35,8 @@ def main():
         exposiciones = obtener_exposiciones(conexion_museo)
 
         for exposicion in exposiciones:
-            id_exposicion = exposicion['id']
-            nombre_exposicion = exposicion['nombre']
+            id_exposicion = exposicion['id_objeto']
+            nombre_exposicion = exposicion['nombre_objeto']
             
             # Generar el hash basado en el ID
             hash_exposicion = generar_hash_exposicion(id_exposicion)
