@@ -1,3 +1,4 @@
+/* CSS base ya existente */
 * {
     margin: 0;
     padding: 0;
@@ -15,6 +16,7 @@ header {
     align-items: center;
     background-color: #4a4a4a;
     padding: 10px;
+    margin-top: 10px;
 }
 
 .logo-container {
@@ -85,6 +87,57 @@ footer {
     text-align: center;
     padding: 10px;
     position: absolute;
-    bottom: 0;
     width: 100%;
+}
+
+/* Media query para tablets */
+@media (min-width: 600px) and (max-width: 900px) {
+    .scanner-container {
+        flex-direction: column;
+    }
+
+    .scanner-box, .explanation-box {
+        width: 250px;
+        height: 350px;
+    }
+
+    .scanner-box img {
+        height: 120px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .main-content h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Media query para celulares */
+@media (max-width: 599px) {
+    .scanner-container {
+        flex-direction: column;
+    }
+
+    .scanner-box, .explanation-box {
+        width: 180px;
+        height: 250px;
+    }
+
+    .scanner-box img {
+        height: 80px;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .main-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .main-content p {
+        font-size: 1rem;
+    }
 }

@@ -3,12 +3,19 @@ from mysql.connector import Error
 
 def create_connection():
     """Crear una conexión a la base de datos"""
+    print("Inserta el host: ")
+    host = input("Host: ")
+    print("Inserta el usuario: ")
+    user = input("Usuario: ")
+    print("Inserta tu contraseña: ")
+    password = input("Password: ")
+
     try:
         connection = mysql.connector.connect(
-            host='localhost',    # Cambia si tu base de datos está en otro servidor
-            database='museos',   # Nombre de la base de datos creada
-            user='tu_usuario',   # Reemplaza con tu usuario de MySQL
-            password='tu_contraseña' # Reemplaza con tu contraseña de MySQL
+            host = host,    # Cambia si tu base de datos está en otro servidor
+            database ='museos',   # Nombre de la base de datos creada
+            user = user,   # Reemplaza con tu usuario de MySQL
+            password = password # Reemplaza con tu contraseña de MySQL
         )
         if connection.is_connected():
             print("Conexión exitosa a la base de datos 'museos'")
