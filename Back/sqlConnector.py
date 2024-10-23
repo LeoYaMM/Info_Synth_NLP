@@ -3,13 +3,6 @@ from mysql.connector import Error
 
 def create_connection():
     """Crear una conexión a la base de datos"""
-    print("Inserta el host: ")
-    host = input("Host: ")
-    print("Inserta el usuario: ")
-    user = input("Usuario: ")
-    print("Inserta tu contraseña: ")
-    password = input("Password: ")
-
     try:
         connection = mysql.connector.connect(
             host = host,    # Cambia si tu base de datos está en otro servidor
