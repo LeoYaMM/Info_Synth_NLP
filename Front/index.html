@@ -1,102 +1,41 @@
-<!--EJEMPLO DE CONEXION ENTRE EL BACK Y EL FRONT-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escaneo de QR</title>
-    <style>
-        #qr-reader {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #resultado {
-            margin-top: 20px;
-        }
-    </style>
+    <title>THOT - Museo Nacional de Antropología</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Escanear Código QR</h1>
+    <header>
+        <div class="logo-container">
+            <img src="imagenesFront/mnaLogo.png" alt="MNA Logo" class="logo">
+            <h1>Museo Nacional de Antropología</h1>
+        </div>
+        <div class="social-media">
+            <a href="#"><img src="imagenesFront/facebookIcon.svg" alt="Facebook"></a>
+            <a href="#"><img src="imagenesFront/instaIcon.svg" alt="Instagram"></a>
+            <!-- <a href="#"><img src="twitter-icon.png" alt="Twitter"></a> -->
+        </div>
+    </header>
 
-    <!-- Contenedor para mostrar la cámara y escanear -->
-    <div id="qr-reader"></div>
+    <section class="main-content">
+        <h2>THOT</h2>
+        <p>Una nueva forma de aprender</p>
 
-    <!-- Div donde se mostrará el resultado de la operación -->
-    <div id="resultado"></div>
+        <div class="scanner-container">
+            <div class="scanner-box">
+                <img src="imagenesFront/camaraIcon.jpeg" alt="Escanea para aprender">
+                <p>¡Escanea para aprender!</p>
+            </div>
+            <div class="explanation-box">
+                <p>Explicación</p>
+            </div>
+        </div>
+    </section>
 
-    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-    <script>
-        // Función para enviar el hash escaneado al backend
-        async function enviarQR(hash) {
-            const respuestaDiv = document.getElementById('resultado');
-
-            try {
-                const response = await fetch('http://localhost:8000/scan_qr/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ qr_data: hash })
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    respuestaDiv.innerText = `QR válido: ${JSON.stringify(data)}`;
-                } else {
-                    const errorData = await response.json();
-                    respuestaDiv.innerText = `Error: ${errorData.detail}`;
-                }
-            } catch (error) {
-                respuestaDiv.innerText = `Error al conectar con el servidor: ${error}`;
-            }
-        }
-
-        // Función que inicializa el escáner de QR
-        function iniciarQRScanner() {
-            const html5QrCode = new Html5Qrcode("qr-reader");
-
-            // Configuramos la cámara trasera
-            const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-            
-            // Iniciamos el escaneo con la cámara trasera
-            Html5Qrcode.getCameras().then(cameras => {
-                if (cameras && cameras.length) {
-                    const cameraId = cameras[cameras.length - 1].id; // Selecciona la cámara trasera
-                    html5QrCode.start(
-                        cameraId, 
-                        config,
-                        qrCodeMessage => {
-                            // Cuando se escanee el QR, enviamos el hash al backend
-                            console.log(`QR Code detected: ${qrCodeMessage}`);
-                            enviarQR(qrCodeMessage);
-
-                            // Detenemos el escaneo para no enviar múltiples veces
-                            html5QrCode.stop().then(() => {
-                                console.log("QR scanning stopped.");
-                            }).catch(err => {
-                                console.error("Error stopping the scan: ", err);
-                            });
-                        },
-                        errorMessage => {
-                            // Opcional: manejar mensajes de error del escaneo
-                            console.warn(`QR Code scan error: ${errorMessage}`);
-                        }
-                    ).catch(err => {
-                        console.error(`Error al iniciar el escaneo: ${err}`);
-                    });
-                }
-            }).catch(err => {
-                console.error(`No se pudieron obtener las cámaras: ${err}`);
-            });
-        }
-
-        // Iniciar el escaneo al cargar la página
-        window.addEventListener('load', iniciarQRScanner);
-    </script>
+    <footer>
+        <p>&copy; 2024 Museo Nacional de Antropología</p>
+    </footer>
 </body>
 </html>
