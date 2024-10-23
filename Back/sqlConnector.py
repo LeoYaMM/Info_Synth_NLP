@@ -5,10 +5,10 @@ def create_connection():
     """Crear una conexión a la base de datos"""
     try:
         connection = mysql.connector.connect(
-            host = host,    # Cambia si tu base de datos está en otro servidor
+            host = 'host',    # Cambia si tu base de datos está en otro servidor
             database ='museos',   # Nombre de la base de datos creada
-            user = user,   # Reemplaza con tu usuario de MySQL
-            password = password # Reemplaza con tu contraseña de MySQL
+            user = 'user',   # Reemplaza con tu usuario de MySQL
+            password = 'password' # Reemplaza con tu contraseña de MySQL
         )
         if connection.is_connected():
             print("Conexión exitosa a la base de datos 'museos'")
