@@ -1,3 +1,5 @@
+# Description: Aqui se encuentran las funciones que se encargan de la conexión con la base de datos
+
 import mysql.connector
 from mysql.connector import Error
 
@@ -110,5 +112,25 @@ def obtener_id_salas():
                 print("No se encontraron salas.")
         except Error as e:
             print(f"Error al obtener los IDs de las salas: {e}")
+        finally:
+            close_connection(connection)
+
+def obtener_resumenes_del_usuario():
+    """Obtener los resúmenes escaneados por el usuario en la tabla Objetos_visitante"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT ID_objeto FROM Objetos_visitante"
+            cursor.execute(select_query)
+            resumenes = cursor.fetchall()
+            if resumenes:
+                print("Resúmenes escaneados por el usuario:")
+                print(resumenes)
+                return resumenes
+            else:
+                print("El usuario no ha escaneado resúmenes.")
+        except Error as e:
+            print(f"Error al obtener los resúmenes escaneados por el usuario: {e}")
         finally:
             close_connection(connection)

@@ -1,4 +1,4 @@
-# Description: Este script se encarga de generar un resumen de la informacion de un objeto del museo, de acuerdo a la edad del visitante.
+# Description: Este script se encarga de generar una pregunta de trivia de acuerdo a la edad del visitante y la info recopilada.
 
 import os
 from sqlConnector import *
@@ -10,7 +10,7 @@ api = os.getenv("GROQ_API_KEY")
 
 client = Groq(api_key=api)
 
-# Informacion del museo y visitante
+# Informacion de los resumenes y la edad del visitante
 info = obtener_informacion_objeto(1)
 edadVisitante = obtener_edad_usuario(2)
 
@@ -26,5 +26,3 @@ chat_completion = client.chat.completions.create(
 )
 
 print(chat_completion.choices[0].message.content)
-
-# Guarda la respuesta generada por el modelo en la tabla resumen

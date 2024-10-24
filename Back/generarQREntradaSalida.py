@@ -1,3 +1,5 @@
+# Description: Script para generar los códigos QR de entrada de las salas
+
 import hashlib
 import qrcode
 from sqlConnector import *
