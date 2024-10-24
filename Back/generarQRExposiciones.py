@@ -20,7 +20,7 @@ def generar_qr(hash_exposicion, nombre_archivo):
 def obtener_exposiciones(conexion):
     try:
         cursor = conexion.cursor(dictionary=True)
-        cursor.execute("SELECT id_objeto, nombre FROM objeto_historico")
+        cursor.execute("SELECT id_objeto, Nombre_objeto FROM objeto_historico")
         return cursor.fetchall()
     except Error as e:
         print(f"Error al obtener las exposiciones: {e}")
@@ -36,7 +36,7 @@ def main():
 
         for exposicion in exposiciones:
             id_exposicion = exposicion['id_objeto']
-            nombre_exposicion = exposicion['nombre_objeto']
+            nombre_exposicion = exposicion['Nombre_objeto']
             
             # Generar el hash basado en el ID
             hash_exposicion = generar_hash_exposicion(id_exposicion)

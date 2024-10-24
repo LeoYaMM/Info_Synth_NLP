@@ -92,3 +92,23 @@ def obtener_edad_usuario(id_visitante):
             print(f"Error al obtener la edad del usuario: {e}")
         finally:
             close_connection(connection)
+
+def obtener_id_salas():
+    """Obtener los IDs de las salas en la tabla Sala"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT ID_sala FROM Sala"
+            cursor.execute(select_query)
+            salas = cursor.fetchall()
+            if salas:
+                print("IDs de las salas:")
+                print(salas)
+                return salas
+            else:
+                print("No se encontraron salas.")
+        except Error as e:
+            print(f"Error al obtener los IDs de las salas: {e}")
+        finally:
+            close_connection(connection)

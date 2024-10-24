@@ -1,28 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-import mysql.connector
-from mysql.connector import Error
+from sqlConnector import *
 import hashlib
 
 app = FastAPI()
-
-# Crear la conexión a la base de datos
-def create_connection():
-    try:
-        connection = mysql.connector.connect(
-            host='localhost',
-            database='museos',
-            user='tu_usuario',
-            password='tu_contraseña'
-        )
-        return connection
-    except Error as e:
-        print(f"Error al conectarse a MySQL: {e}")
-        return None
-
-def close_connection(connection):
-    if connection.is_connected():
-        connection.close()
 
 # Función para desencriptar el hash (ejemplo simple con hashlib)
 def desencriptar_hash(hash_qr: str) -> str:
