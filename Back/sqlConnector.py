@@ -5,13 +5,13 @@ def create_connection():
     """Crear una conexión a la base de datos"""
     try:
         connection = mysql.connector.connect(
-            host = 'host',    # Cambia si tu base de datos está en otro servidor
-            database ='museos',   # Nombre de la base de datos creada
-            user = 'user',   # Reemplaza con tu usuario de MySQL
-            password = 'password' # Reemplaza con tu contraseña de MySQL
+            host = '127.0.0.1',
+            database ='museo',  
+            user = 'root',  
+            password = 'Blow85**'
         )
         if connection.is_connected():
-            print("Conexión exitosa a la base de datos 'museos'")
+            print("Conexión exitosa a la base de datos 'museo'")
             return connection
     except Error as e:
         print(f"Error al conectarse a MySQL: {e}")
@@ -29,8 +29,8 @@ def crear_usuario_temporal(nombre, edad):
     if connection is not None:
         try:
             cursor = connection.cursor()
-            insert_query = "INSERT INTO Visitante (Nombre, Edad, Puntuacion_trivia) VALUES (%s, %s, %s)"
-            cursor.execute(insert_query, (nombre, edad, 0))  # Inicializamos la puntuación en 0
+            insert_query = "INSERT INTO Visitante (Nombre, Edad, Puntuacion_trivia) VALUES (%s, %s, %s)" # Información dada desde el frontend
+            cursor.execute(insert_query, (nombre, edad, 0))
             connection.commit()
             print(f"Usuario temporal '{nombre}' creado con éxito.")
         except Error as e:
@@ -50,5 +50,45 @@ def agregar_objeto_escaneado(id_visitante, id_objeto):
             print(f"El objeto con ID {id_objeto} ha sido registrado para el visitante con ID {id_visitante}.")
         except Error as e:
             print(f"Error al registrar el objeto escaneado: {e}")
+        finally:
+            close_connection(connection)
+
+def obtener_informacion_objeto(id_objeto):
+    """Obtener la información de un objeto en la tabla Objetos"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT Informacion FROM objeto_historico WHERE ID_objeto = %s"
+            cursor.execute(select_query, (id_objeto,))
+            objeto = cursor.fetchone()
+            if objeto is not None:
+                print(f"Información del objeto con ID {id_objeto}:")
+                print(objeto)
+                return objeto
+            else:
+                print(f"No se encontró un objeto con ID {id_objeto}.")
+        except Error as e:
+            print(f"Error al obtener información del objeto: {e}")
+        finally:
+            close_connection(connection)
+
+def obtener_edad_usuario(id_visitante):
+    """Obtener la edad de un usuario en la tabla Visitante"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT Edad FROM Visitante WHERE ID_visitante = %s"
+            cursor.execute(select_query, (id_visitante,))
+            edad = cursor.fetchone()
+            if edad is not None:
+                print(f"Edad del usuario con ID {id_visitante}:")
+                print(edad)
+                return edad
+            else:
+                print(f"No se encontró un usuario con ID {id_visitante}.")
+        except Error as e:
+            print(f"Error al obtener la edad del usuario: {e}")
         finally:
             close_connection(connection)
