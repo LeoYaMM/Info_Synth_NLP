@@ -65,8 +65,7 @@ def obtener_informacion_objeto(id_objeto):
             cursor.execute(select_query, (id_objeto,))
             objeto = cursor.fetchone()
             if objeto is not None:
-                print(f"Información del objeto con ID {id_objeto}:")
-                print(objeto)
+                print(f"Información encontrada del objeto con ID {id_objeto}")
                 return objeto
             else:
                 print(f"No se encontró un objeto con ID {id_objeto}.")
@@ -85,8 +84,7 @@ def obtener_edad_usuario(id_visitante):
             cursor.execute(select_query, (id_visitante,))
             edad = cursor.fetchone()
             if edad is not None:
-                print(f"Edad del usuario con ID {id_visitante}:")
-                print(edad)
+                print(f"Edad del usuario con ID {id_visitante} encontrada")
                 return edad
             else:
                 print(f"No se encontró un usuario con ID {id_visitante}.")
@@ -140,8 +138,7 @@ def obtener_resumenes_visitantes(id_visitante):
             cursor.execute(select_query, (id_visitante,))
             resumenes = cursor.fetchall()
             if resumenes:
-                print(f"Resúmenes generados para el visitante con ID {id_visitante}:")
-                print(resumenes)
+                print(f"Resúmenes generados para el visitante con ID {id_visitante} tomado con éxito")
                 return resumenes
             else:
                 print(f"No se encontraron resúmenes para el visitante con ID {id_visitante}.")

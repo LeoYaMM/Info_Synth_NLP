@@ -21,10 +21,11 @@ chat_completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": f"Resume o expande (de acuerdo a la longitud de la info) la sigueinte informacion de maximo 100 palabras: {info}; pero damela acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas :)",
+            "content": f"Resume y complementa la sigueinte informacion de maximo 100 palabras: {info}; pero damela acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas :)",
         }
     ],
     model="llama3-8b-8192",
+    temperature= 0.3,
 )
 
 print(chat_completion.choices[0].message.content)
