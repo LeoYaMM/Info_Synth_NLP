@@ -21,7 +21,7 @@ chat_completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": f"A partir de estos resumenes: {info}, dame 10 preguntas; pero damela en nivel de dificultad acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas :)",
+            "content": f"A partir de estos resumenes: {info}, dame 10 preguntas de opción multiple; pero damela en nivel de dificultad acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas :)",
         }
     ],
     model="llama3-8b-8192",
