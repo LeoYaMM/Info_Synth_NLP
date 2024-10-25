@@ -1,4 +1,5 @@
 # Description: Aqui se encuentran las funciones que se encargan de la conexión con la base de datos
+#! Status: In Progress
 
 import mysql.connector
 from mysql.connector import Error

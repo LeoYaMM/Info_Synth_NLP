@@ -1,4 +1,5 @@
 # Description: Script para generar los códigos QR de entrada de las salas
+#* Status: Complete
 
 import hashlib
 import qrcode

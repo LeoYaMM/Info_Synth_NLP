@@ -1,3 +1,6 @@
+# Description: Este script se encarga de conectarse con el front y el back para realizar la lectura de los QRs y la generación de preguntas de trivia.
+#! Status: In Progress
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from sqlConnector import *

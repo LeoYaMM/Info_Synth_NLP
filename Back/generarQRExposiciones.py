@@ -1,4 +1,5 @@
 # Description: Este script se encarga de generar códigos QR para las exposiciones del museo, basados en el ID de la exposición y almacenarlos en archivos PNG.
+#* Status: Complete
 
 import hashlib
 import qrcode

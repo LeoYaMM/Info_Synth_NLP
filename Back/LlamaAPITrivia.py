@@ -1,4 +1,5 @@
 # Description: Este script se encarga de generar preguntas para la trivia, de acuerdo a la edad del visitante y la info recopilada.
+#! Status: In Progress
 
 import os
 from sqlConnector import *

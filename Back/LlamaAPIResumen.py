@@ -1,4 +1,5 @@
 # Description: Este script se encarga de generar un resumen de la informacion de un objeto del museo, de acuerdo a la edad del visitante.
+#* Status: Complete
 
 import os
 from sqlConnector import *
