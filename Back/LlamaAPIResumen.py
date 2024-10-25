@@ -10,9 +10,11 @@ api = os.getenv("GROQ_API_KEY")
 
 client = Groq(api_key=api)
 
+#! Id_visitante se obtiene de las cookies
+
 # Informacion del museo y visitante
 info = obtener_informacion_objeto(1)
-edadVisitante = obtener_edad_usuario(2)
+edadVisitante = obtener_edad_usuario(1)
 
 # Parametros
 chat_completion = client.chat.completions.create(
@@ -28,3 +30,4 @@ chat_completion = client.chat.completions.create(
 print(chat_completion.choices[0].message.content)
 
 # Guarda la respuesta generada por el modelo en la tabla resumen
+guarda_resumen_usuario(2, chat_completion.choices[0].message.content)

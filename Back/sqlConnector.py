@@ -115,22 +115,37 @@ def obtener_id_salas():
         finally:
             close_connection(connection)
 
-def obtener_resumenes_del_usuario():
-    """Obtener los resúmenes escaneados por el usuario en la tabla Objetos_visitante"""
+def guarda_resumen_usuario(id_visitante, resumen):
+    """Guardar el resumen generado por el modelo en la tabla Resumen"""
     connection = create_connection()
     if connection is not None:
         try:
             cursor = connection.cursor()
-            select_query = "SELECT ID_objeto FROM Objetos_visitante"
-            cursor.execute(select_query)
+            insert_query = "INSERT INTO Resumen (ID_visitante, Texto) VALUES (%s, %s)"
+            cursor.execute(insert_query, (id_visitante, resumen))
+            connection.commit()
+            print(f"Resumen guardado para el visitante con ID {id_visitante}.")
+        except Error as e:
+            print(f"Error al guardar el resumen: {e}")
+        finally:
+            close_connection(connection)
+
+def obtener_resumenes_visitantes(id_visitante):
+    """Obtener los resúmenes generados para un visitante en la tabla Resumen"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT Texto FROM Resumen WHERE ID_visitante = %s"
+            cursor.execute(select_query, (id_visitante,))
             resumenes = cursor.fetchall()
             if resumenes:
-                print("Resúmenes escaneados por el usuario:")
+                print(f"Resúmenes generados para el visitante con ID {id_visitante}:")
                 print(resumenes)
                 return resumenes
             else:
-                print("El usuario no ha escaneado resúmenes.")
+                print(f"No se encontraron resúmenes para el visitante con ID {id_visitante}.")
         except Error as e:
-            print(f"Error al obtener los resúmenes escaneados por el usuario: {e}")
+            print(f"Error al obtener los resúmenes de un visitante: {e}")
         finally:
             close_connection(connection)

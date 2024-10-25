@@ -10,8 +10,10 @@ api = os.getenv("GROQ_API_KEY")
 
 client = Groq(api_key=api)
 
+#! Obtiene el id del visitante de las cookies
+
 # Informacion de los resumenes y la edad del visitante
-info = obtener_informacion_objeto(1)
+info = obtener_resumenes_visitantes(1)
 edadVisitante = obtener_edad_usuario(2)
 
 # Parametros
@@ -19,7 +21,7 @@ chat_completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": f"Resume o expande (de acuerdo a la longitud de la info) la sigueinte informacion: {info}; pero damela acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas :)",
+            "content": f"A partir de estos resumenes: {info}, dame 10 preguntas; pero damela en nivel de dificultad acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas :)",
         }
     ],
     model="llama3-8b-8192",
