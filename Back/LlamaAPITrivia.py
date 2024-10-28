@@ -19,16 +19,19 @@ edadVisitante = obtener_edad_usuario(2)
 
 #! Falta iterar los resumenes para obtener una pregunta
 
-# Formulacion de la pregunta
-chat_completion = client.chat.completions.create(
-    messages=[
-        {
-            "role": "user",
-            "content": f"A partir de estos resumenes: {info}, dame 10 preguntas de opción multiple; pero damela en nivel de dificultad acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas :)",
-        }
-    ],
-    model="llama3-8b-8192",
-)
+for i in range(10):
+    # Formulacion de la pregunta
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": f"A partir de estos resumenes: {info}, dame una pregunta de opción multiple; pero damela en nivel de dificultad acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas :)",
+            }
+        ],
+        model="llama3-8b-8192",
+        temperature=.5,
+    )
+
 
 print(chat_completion.choices[0].message.content)
 
