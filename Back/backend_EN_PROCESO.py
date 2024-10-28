@@ -5,6 +5,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from sqlConnector import *
 import hashlib
+from LlamaAPIResumen import resumen_Llama
 
 app = FastAPI()
 
@@ -23,36 +24,29 @@ def desencriptar_hash(hash_qr: str) -> str:
 class QRRequest(BaseModel):
     qr_data: str  # Este es el hash escaneado
 
-# Ruta que recibe el QR y consulta la base de datos
+# Ruta que recibe el QR
 @app.post("/scan_qr/")
 async def scan_qr(qr_request: QRRequest):
     qr_data = qr_request.qr_data
     # Desencriptamos el hash
-    desencriptado = desencriptar_hash(qr_data)
+    id_objeto = desencriptar_hash(qr_data)
     
-    if desencriptado is None:
+    if id_objeto is None:
         raise HTTPException(status_code=400, detail="Error al desencriptar el hash.")
     
-    # Aquí realizar la validación con la base de datos
-    connection = create_connection()
-    if connection is None:
-        raise HTTPException(status_code=500, detail="Error de conexión con la base de datos.")
+    # Pasa el ID del objeto a LlamaAPIResumen para obtener el resumen
     
-    try:
-        cursor = connection.cursor()
-        query = "SELECT * FROM Visitante WHERE ID_visitante = %s"  # Ajusta según tu necesidad
-        cursor.execute(query, (desencriptado,))
-        result = cursor.fetchone()
 
-        if result:
-            # Si existe el visitante, devolvemos sus datos
-            return {"status": "success", "data": result}
-        else:
-            raise HTTPException(status_code=404, detail="Visitante no encontrado.")
+# Endpoint para obtener el resumen según el topic_id
+@app.get("/get_summary/{topic_id}")
+async def get_summary(topic_id: int):
+    # Obtener el resumen de la base de datos
+    summary = obtener_resumen_objeto(id_objeto, id_visitante)
     
-    except Error as e:
-        raise HTTPException(status_code=500, detail=f"Error en la consulta: {e}")
-    finally:
-        close_connection(connection)
+    # Si el resumen no existe, devolver un mensaje de error
+    if not summary:
+        return {"error": "Resumen no encontrado"}
+    
+    return {"summary": summary}
 
 # Para correr el servidor de FastAPI: uvicorn main:app --reload

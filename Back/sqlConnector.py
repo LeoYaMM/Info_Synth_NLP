@@ -4,6 +4,7 @@
 import mysql.connector
 from mysql.connector import Error
 
+# Funcion para crear la conexión a la base de datos
 def create_connection():
     """Crear una conexión a la base de datos"""
     try:
@@ -20,12 +21,14 @@ def create_connection():
         print(f"Error al conectarse a MySQL: {e}")
         return None
 
+# Funcion para crear la conexión a la base de datos
 def close_connection(connection):
     """Cerrar la conexión a la base de datos"""
     if connection.is_connected():
         connection.close()
         print("Conexión cerrada")
 
+# Funcion para crear un nuevo usuario temporal, no retorna nada
 def crear_usuario_temporal(nombre, edad):
     """Crear un nuevo usuario temporal al escanear un QR"""
     connection = create_connection()
@@ -41,6 +44,7 @@ def crear_usuario_temporal(nombre, edad):
         finally:
             close_connection(connection)
 
+# Agrega un objeto escaneado por un usuario asociado con su ID de visitante, no retorna nada
 def agregar_objeto_escaneado(id_visitante, id_objeto):
     """Registrar el escaneo de un objeto por parte de un usuario en la tabla Objetos_visitante"""
     connection = create_connection()
@@ -56,6 +60,7 @@ def agregar_objeto_escaneado(id_visitante, id_objeto):
         finally:
             close_connection(connection)
 
+# Obtiene la informacion de un objeto escaneado por un usuario a traves de el ID del objeto, retorna la informacion del objeto en la base de datos
 def obtener_informacion_objeto(id_objeto):
     """Obtener la información de un objeto en la tabla Objetos"""
     connection = create_connection()
@@ -75,6 +80,7 @@ def obtener_informacion_objeto(id_objeto):
         finally:
             close_connection(connection)
 
+# Obtiene la edad del usuario, retorna un entero
 def obtener_edad_usuario(id_visitante):
     """Obtener la edad de un usuario en la tabla Visitante"""
     connection = create_connection()
@@ -94,6 +100,7 @@ def obtener_edad_usuario(id_visitante):
         finally:
             close_connection(connection)
 
+# Obtiene el id de la sala, retorna un entero
 def obtener_id_salas():
     """Obtener los IDs de las salas en la tabla Sala"""
     connection = create_connection()
@@ -114,6 +121,7 @@ def obtener_id_salas():
         finally:
             close_connection(connection)
 
+# Guarda el resumen, no retorna nada
 def guarda_resumen_usuario(id_visitante, resumen, id_objeto):
     """Guardar el resumen generado por el modelo en la tabla Resumen"""
     connection = create_connection()
@@ -130,6 +138,7 @@ def guarda_resumen_usuario(id_visitante, resumen, id_objeto):
         finally:
             close_connection(connection)
 
+# Obtiene los resumenes generados para un visitante, retorna una lista de los resumenes por usuario
 def obtener_resumenes_visitantes(id_visitante):
     """Obtener los resúmenes generados para un visitante en la tabla Resumen"""
     connection = create_connection()
@@ -146,5 +155,26 @@ def obtener_resumenes_visitantes(id_visitante):
                 print(f"No se encontraron resúmenes para el visitante con ID {id_visitante}.")
         except Error as e:
             print(f"Error al obtener los resúmenes de un visitante: {e}")
+        finally:
+            close_connection(connection)
+
+# Obtiene el resumen generado para un objeto específico, retorna el resumen correspondiente al id_objeto
+def obtener_resumen_objeto(id_objeto, id_visitante):
+    """Obtener el resumen generado para un objeto en la tabla Resumen"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT Texto FROM Resumen WHERE ID_objeto = %s and ID_visitante = %s"
+            cursor.execute(select_query, (id_objeto, id_visitante))
+            resumen = cursor.fetchone()  # Usamos fetchone porque esperamos solo un resumen para el objeto
+            if resumen:
+                print(f"Resumen generado para el objeto con ID {id_objeto} para el visitante {id_visitante} obtenido con éxito")
+                return resumen[0]  # Retorna el contenido del resumen directamente
+            else:
+                print(f"No se encontró un resumen para el objeto con ID {id_objeto}.")
+                return None
+        except Error as e:
+            print(f"Error al obtener el resumen de un objeto: {e}")
         finally:
             close_connection(connection)
