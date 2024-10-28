@@ -114,16 +114,17 @@ def obtener_id_salas():
         finally:
             close_connection(connection)
 
-def guarda_resumen_usuario(id_visitante, resumen):
+def guarda_resumen_usuario(id_visitante, resumen, id_objeto):
     """Guardar el resumen generado por el modelo en la tabla Resumen"""
     connection = create_connection()
     if connection is not None:
         try:
             cursor = connection.cursor()
-            insert_query = "INSERT INTO Resumen (ID_visitante, Texto) VALUES (%s, %s)"
-            cursor.execute(insert_query, (id_visitante, resumen))
+            insert_query = "INSERT INTO Resumen (ID_visitante, Texto,  ID_objeto) VALUES (%s, %s, %s)"
+
+            cursor.execute(insert_query, (id_visitante, resumen, id_objeto))
             connection.commit()
-            print(f"Resumen guardado para el visitante con ID {id_visitante}.")
+            print(f"Resumen del objeto {id_objeto} guardado para el visitante {id_visitante}.")
         except Error as e:
             print(f"Error al guardar el resumen: {e}")
         finally:

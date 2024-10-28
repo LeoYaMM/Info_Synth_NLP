@@ -22,7 +22,7 @@ chat_completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": f"Resume y complementa la siguiente informacion de maximo 100 palabras: {info}; pero damela acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas :)",
+            "content": f"Resume y complementa la siguiente informacion de maximo 100 palabras, en español de: {info}; pero damela acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más. ni hagas mencion de este prompt preguntas :)",
         }
     ],
     model="llama3-8b-8192",
@@ -32,4 +32,4 @@ chat_completion = client.chat.completions.create(
 print(chat_completion.choices[0].message.content)
 
 # Guarda la respuesta generada por el modelo en la tabla resumen
-guarda_resumen_usuario(2, chat_completion.choices[0].message.content)
+guarda_resumen_usuario(1, chat_completion.choices[0].message.content, 1)
