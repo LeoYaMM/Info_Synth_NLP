@@ -165,7 +165,7 @@ def obtener_resumen_objeto(id_objeto, id_visitante):
     if connection is not None:
         try:
             cursor = connection.cursor()
-            select_query = "SELECT Texto FROM Resumen WHERE ID_objeto = %s and ID_visitante = %s"
+            select_query = "SELECT Texto FROM Resumen WHERE ID_objeto = %s AND ID_visitante = %s"
             cursor.execute(select_query, (id_objeto, id_visitante))
             resumen = cursor.fetchone()  # Usamos fetchone porque esperamos solo un resumen para el objeto
             if resumen:
@@ -176,5 +176,129 @@ def obtener_resumen_objeto(id_objeto, id_visitante):
                 return None
         except Error as e:
             print(f"Error al obtener el resumen de un objeto: {e}")
+        finally:
+            close_connection(connection)
+
+# Agrega el nombre del visitante a la base de datos, no retorna nada
+def agregar_nombre_visitante(id_visitante, nombre):
+    """Agregar el nombre de un visitante a la tabla Visitante"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            update_query = "UPDATE Visitante SET Nombre = %s WHERE ID_visitante = %s"
+            cursor.execute(update_query, (nombre, id_visitante))
+            connection.commit()
+            print(f"Nombre del visitante con ID {id_visitante} actualizado con éxito.")
+        except Error as e:
+            print(f"Error al agregar el nombre del visitante: {e}")
+        finally:
+            close_connection(connection)
+
+# Obtiene el id_objeto a partir del resumen generado, retorna el id_objeto correspondiente al resumen
+def obtener_id_objeto_resumen(resumen, id_visitante):
+    """Obtener el ID del objeto a partir de un resumen en la tabla Resumen"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT ID_objeto FROM Resumen WHERE Texto = %s AND ID_visitante = %s"
+            cursor.execute(select_query, (resumen, id_visitante))
+            id_objeto = cursor.fetchone()
+            if id_objeto:
+                print(f"ID del objeto obtenido para el resumen del visitante {id_visitante}")
+                return id_objeto[0]
+            else:
+                print(f"No se encontró un objeto para el resumen del visitante {id_visitante}.")
+                return None
+        except Error as e:
+            print(f"Error al obtener el ID del objeto a partir de un resumen: {e}")
+        finally:
+            close_connection(connection)
+
+# Guarda la pregunta generada por el modelo, no retorna nada
+def guarda_pregunta_trivia(id_visitante, pregunta, id_objeto):
+    """Guardar la pregunta generada por el modelo en la tabla Trivia"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            insert_query = "INSERT INTO Trivia (ID_visitante, Pregunta, ID_objeto) VALUES (%s, %s, %s)"
+            cursor.execute(insert_query, (id_visitante, pregunta, id_objeto))
+            connection.commit()
+            print(f"Pregunta de trivia guardada para el visitante {id_visitante}.")
+        except Error as e:
+            print(f"Error al guardar la pregunta de trivia: {e}")
+        finally:
+            close_connection(connection)
+
+# Guarda la respuesta del usuario a una pregunta de trivia, no retorna nada
+def guarda_respuesta_trivia(id_visitante, respuesta, id_objeto):
+    """Guardar la respuesta del usuario a una pregunta de trivia en la tabla Trivia"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            update_query = "UPDATE Trivia SET Respuesta_usuario = %s WHERE ID_visitante = %s AND ID_objeto = %s"
+            cursor.execute(update_query, (respuesta, id_visitante, id_objeto))
+            connection.commit()
+            print(f"Respuesta de trivia guardada para el visitante {id_visitante}.")
+        except Error as e:
+            print(f"Error al guardar la respuesta de trivia: {e}")
+        finally:
+            close_connection(connection)
+
+# Obtiene las preguntas de trivia generadas para un visitante, retorna una lista de las preguntas por usuario
+def obtener_preguntas_trivia(id_visitante):
+    """Obtener las preguntas de trivia generadas para un visitante en la tabla Trivia"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT Pregunta FROM Trivia WHERE ID_visitante = %s"
+            cursor.execute(select_query, (id_visitante,))
+            preguntas = cursor.fetchall()
+            if preguntas:
+                print(f"Preguntas de trivia generadas para el visitante con ID {id_visitante} obtenidas con éxito.")
+                return preguntas
+            else:
+                print(f"No se encontraron preguntas de trivia para el visitante con ID {id_visitante}.")
+        except Error as e:
+            print(f"Error al obtener las preguntas de trivia de un visitante: {e}")
+        finally:
+            close_connection(connection)
+
+# Obtiene las respuestas de trivia dadas por un visitante, retorna una lista de las respuestas por usuario
+def obtener_respuestas_trivia(id_visitante):
+    """Obtener las respuestas de trivia dadas por un visitante en la tabla Trivia"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT Respuesta_usuario FROM Trivia WHERE ID_visitante = %s"
+            cursor.execute(select_query, (id_visitante,))
+            respuestas = cursor.fetchall()
+            if respuestas:
+                print(f"Respuestas de trivia dadas por el visitante con ID {id_visitante} obtenidas con éxito.")
+                return respuestas
+            else:
+                print(f"No se encontraron respuestas de trivia para el visitante con ID {id_visitante}.")
+        except Error as e:
+            print(f"Error al obtener las respuestas de trivia de un visitante: {e}")
+        finally:
+            close_connection(connection)
+
+def agregar_edad_visitante(id_visitante, edad):
+    """Agregar la edad de un visitante a la tabla Visitante"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            update_query = "UPDATE Visitante SET Edad = %s WHERE ID_visitante = %s"
+            cursor.execute(update_query, (edad, id_visitante))
+            connection.commit()
+            print(f"Edad del visitante con ID {id_visitante} actualizada con éxito.")
+        except Error as e:
+            print(f"Error al agregar la edad del visitante: {e}")
         finally:
             close_connection(connection)

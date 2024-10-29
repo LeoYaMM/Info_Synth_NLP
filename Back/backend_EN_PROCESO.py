@@ -37,16 +37,5 @@ async def scan_qr(qr_request: QRRequest):
     # Pasa el ID del objeto a LlamaAPIResumen para obtener el resumen
     
 
-# Endpoint para obtener el resumen según el topic_id
-@app.get("/get_summary/{topic_id}")
-async def get_summary(topic_id: int):
-    # Obtener el resumen de la base de datos
-    summary = obtener_resumen_objeto(id_objeto, id_visitante)
-    
-    # Si el resumen no existe, devolver un mensaje de error
-    if not summary:
-        return {"error": "Resumen no encontrado"}
-    
-    return {"summary": summary}
 
 # Para correr el servidor de FastAPI: uvicorn main:app --reload

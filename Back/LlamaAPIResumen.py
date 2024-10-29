@@ -6,7 +6,7 @@ from sqlConnector import *
 from groq import Groq
 from langchain_groq import ChatGroq
 
-def resumen_Llama(id_objeto):
+def resumen_Llama(id_objeto, id_visitante):
     api = os.getenv("GROQ_API_KEY")
 
     client = Groq(api_key=api)
@@ -14,8 +14,8 @@ def resumen_Llama(id_objeto):
     #! Id_visitante se obtiene de las cookies
 
     # Informacion del museo y visitante
-    info = obtener_informacion_objeto(1)
-    edadVisitante = obtener_edad_usuario(1)
+    info = obtener_informacion_objeto(id_objeto)
+    edadVisitante = obtener_edad_usuario(id_visitante)
 
     # Parametros
     chat_completion = client.chat.completions.create(
@@ -30,6 +30,7 @@ def resumen_Llama(id_objeto):
     )
 
     print(chat_completion.choices[0].message.content)
+    input("Presiona Enter para continuar...")
 
     # Guarda la respuesta generada por el modelo en la tabla resumen
-    guarda_resumen_usuario(1, chat_completion.choices[0].message.content, 1)
+    guarda_resumen_usuario(id_visitante, chat_completion.choices[0].message.content, id_objeto)
