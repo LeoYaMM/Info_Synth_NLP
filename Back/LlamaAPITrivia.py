@@ -32,9 +32,8 @@ def trivia_Llama(id_visitante):
         print(chat_completion.choices[0].message.content)
         print("Ingresa tu respuesta: ")
         respuesta = input()
-        id_objeto = obtener_id_objeto_resumen(info[i], id_visitante)
-        guarda_pregunta_trivia(id_visitante, chat_completion.choices[0].message.content, id_objeto)
-        guarda_respuesta_trivia(id_visitante, respuesta, id_objeto)
+        guarda_pregunta_trivia(id_visitante, chat_completion.choices[0].message.content)
+        guarda_respuesta_trivia(id_visitante, respuesta, chat_completion.choices[0].message.content)
 
 def califica_trivia_Llama(id_visitante):
     api = os.getenv("GROQ_API_KEY")
@@ -66,8 +65,3 @@ def califica_trivia_Llama(id_visitante):
 
     print(f"Tu calificación es: {aciertos}")
     input("Presiona Enter para continuar...")
-#! Falta iterar para generar las opciones multiple
-
-#! Falta iterar para escoger la respuesta correcta de la lista de opcion multiple
-
-#! Falta guardar las preguntas y respuestas en la tabla Trivia

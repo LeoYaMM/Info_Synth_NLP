@@ -30,7 +30,8 @@ def resumen_Llama(id_objeto, id_visitante):
     )
 
     print(chat_completion.choices[0].message.content)
-    input("Presiona Enter para continuar...")
+    
 
     # Guarda la respuesta generada por el modelo en la tabla resumen
     guarda_resumen_usuario(id_visitante, chat_completion.choices[0].message.content, id_objeto)
+    input("Presiona Enter para continuar...")

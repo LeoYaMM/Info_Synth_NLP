@@ -195,36 +195,15 @@ def agregar_nombre_visitante(id_visitante, nombre):
         finally:
             close_connection(connection)
 
-# Obtiene el id_objeto a partir del resumen generado, retorna el id_objeto correspondiente al resumen
-def obtener_id_objeto_resumen(resumen, id_visitante):
-    """Obtener el ID del objeto a partir de un resumen en la tabla Resumen"""
-    connection = create_connection()
-    if connection is not None:
-        try:
-            cursor = connection.cursor()
-            select_query = "SELECT ID_objeto FROM Resumen WHERE Texto = %s AND ID_visitante = %s"
-            cursor.execute(select_query, (resumen, id_visitante))
-            id_objeto = cursor.fetchone()
-            if id_objeto:
-                print(f"ID del objeto obtenido para el resumen del visitante {id_visitante}")
-                return id_objeto[0]
-            else:
-                print(f"No se encontró un objeto para el resumen del visitante {id_visitante}.")
-                return None
-        except Error as e:
-            print(f"Error al obtener el ID del objeto a partir de un resumen: {e}")
-        finally:
-            close_connection(connection)
-
 # Guarda la pregunta generada por el modelo, no retorna nada
-def guarda_pregunta_trivia(id_visitante, pregunta, id_objeto):
+def guarda_pregunta_trivia(id_visitante, pregunta):
     """Guardar la pregunta generada por el modelo en la tabla Trivia"""
     connection = create_connection()
     if connection is not None:
         try:
             cursor = connection.cursor()
-            insert_query = "INSERT INTO Trivia (ID_visitante, Pregunta, ID_objeto) VALUES (%s, %s, %s)"
-            cursor.execute(insert_query, (id_visitante, pregunta, id_objeto))
+            insert_query = "INSERT INTO Trivia (ID_visitante, Pregunta) VALUES (%s, %s)"
+            cursor.execute(insert_query, (id_visitante, pregunta))
             connection.commit()
             print(f"Pregunta de trivia guardada para el visitante {id_visitante}.")
         except Error as e:
@@ -233,14 +212,14 @@ def guarda_pregunta_trivia(id_visitante, pregunta, id_objeto):
             close_connection(connection)
 
 # Guarda la respuesta del usuario a una pregunta de trivia, no retorna nada
-def guarda_respuesta_trivia(id_visitante, respuesta, id_objeto):
+def guarda_respuesta_trivia(id_visitante, respuesta, pregunta):
     """Guardar la respuesta del usuario a una pregunta de trivia en la tabla Trivia"""
     connection = create_connection()
     if connection is not None:
         try:
             cursor = connection.cursor()
-            update_query = "UPDATE Trivia SET Respuesta_usuario = %s WHERE ID_visitante = %s AND ID_objeto = %s"
-            cursor.execute(update_query, (respuesta, id_visitante, id_objeto))
+            update_query = "UPDATE Trivia SET Respuesta_usuario = %s WHERE ID_visitante = %s AND pregunta = %s"
+            cursor.execute(update_query, (respuesta, id_visitante, pregunta))
             connection.commit()
             print(f"Respuesta de trivia guardada para el visitante {id_visitante}.")
         except Error as e:
