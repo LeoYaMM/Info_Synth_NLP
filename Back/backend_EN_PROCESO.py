@@ -35,7 +35,7 @@ async def scan_qr(qr_request: QRRequest):
         raise HTTPException(status_code=400, detail="Error al desencriptar el hash.")
     
     # Pasa el ID del objeto a LlamaAPIResumen para obtener el resumen
-    
+    resumen = resumen_Llama(id_objeto)
 
 
 # Para correr el servidor de FastAPI: uvicorn main:app --reload

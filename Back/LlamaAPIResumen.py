@@ -29,9 +29,7 @@ def resumen_Llama(id_objeto, id_visitante):
         temperature= 0.3,
     )
 
-    print(chat_completion.choices[0].message.content)
-    
-
     # Guarda la respuesta generada por el modelo en la tabla resumen
     guarda_resumen_usuario(id_visitante, chat_completion.choices[0].message.content, id_objeto)
+    return chat_completion.choices[0].message.content
     input("Presiona Enter para continuar...")
