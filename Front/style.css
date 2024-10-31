@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: #707b7c ;
 }
 
 header {
@@ -15,8 +15,8 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #4a4a4a;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 50px;
+    margin-top: 0px;
 }
 
 .logo-container {
@@ -34,6 +34,34 @@ header h1 {
     font-size: 1.5rem;
 }
 
+.header-title {
+    flex: 1;
+    font-family: "Bebas Neue", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "MORF" 0; /* Sintaxis corregida */
+    text-align: center;
+    font-size: 1.8rem;
+    color: white;
+}
+.updock-regular {
+    font-family: "Updock", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.text-bienvenido {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 20px;
+} 
+
+.text-scan{
+    color: white
+}
+
 .social-media img {
     height: 30px;
     margin-left: 10px;
@@ -41,10 +69,12 @@ header h1 {
 
 .main-content {
     text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin: 20px;
+    padding: 150px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('imagenesFront/backindex.jpeg');
+    background-size: cover;
+    background-position: 50% 30% ;
+    border: 1px solid #000000;
+    margin: 0px;
     position: relative;
 }
 
@@ -62,32 +92,50 @@ header h1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
     margin-top: 20px;
 }
 
 .scanner-box, .explanation-box {
-    border: 2px solid #000;
-    padding: 40px;
-    width: 200px;
-    height: 300px;
+    border: 2px solid #ffffff;
+    padding: 80px;
+    width: 1000px;
+    height: 800px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 20px 20px;
 }
 
 .scanner-box img {
-    height: 100px;
-    margin-bottom: 20px;
+    height: 200px;
+    margin-bottom: 100px;
 }
 
 footer {
     background-color: #4a4a4a;
     color: white;
     text-align: center;
-    padding: 10px;
-    position: absolute;
+    padding-top: 50px;
+    padding-bottom: 70px;
     width: 100%;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5d6d7e;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color:#34495e;
 }
 
 /* Media query para tablets */
@@ -97,12 +145,12 @@ footer {
     }
 
     .scanner-box, .explanation-box {
-        width: 250px;
-        height: 350px;
+        width: 550px;
+        height: 550px;
     }
 
     .scanner-box img {
-        height: 120px;
+        height: 320px;
     }
 
     header h1 {
@@ -141,3 +189,5 @@ footer {
         font-size: 1rem;
     }
 }
+
+
