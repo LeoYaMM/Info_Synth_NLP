@@ -44,6 +44,27 @@ def crear_usuario_temporal(nombre, edad):
         finally:
             close_connection(connection)
 
+# Funcion para obtener el id del visitante, retorna el id del visitante
+def obtener_id_visitante(nombre, edad):
+    """Obtener el ID de un visitante en la tabla Visitante"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT ID_visitante FROM Visitante WHERE Nombre = %s AND Edad = %s"
+            cursor.execute(select_query, (nombre, edad))
+
+            id_visitante = cursor.fetchone()
+            if id_visitante is not None:
+                print(f"ID del visitante '{nombre}' encontrado")
+                return id_visitante
+            else:
+                print(f"No se encontró un visitante con el nombre '{nombre}'.")
+        except Error as e:
+            print(f"Error al obtener el ID del visitante: {e}")
+        finally:
+            close_connection(connection)
+
 # Agrega un objeto escaneado por un usuario asociado con su ID de visitante, no retorna nada
 def agregar_objeto_escaneado(id_visitante, id_objeto):
     """Registrar el escaneo de un objeto por parte de un usuario en la tabla Objetos_visitante"""
