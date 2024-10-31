@@ -63,5 +63,4 @@ def califica_trivia_Llama(id_visitante):
         if chat_completion.choices[0].message.content == "1":
             aciertos += 1
 
-    print(f"Tu calificación es: {aciertos}")
-    input("Presiona Enter para continuar...")
+    return aciertos

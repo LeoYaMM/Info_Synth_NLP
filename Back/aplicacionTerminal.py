@@ -2,6 +2,8 @@ from LlamaAPIResumen import resumen_Llama
 from LlamaAPITrivia import *
 from sqlConnector import *
 
+# Aplicación de terminal unicamente para pruebas
+
 def main():
     print("Bienvenido a Thot!")
     print("Por favor, ingresa tu nombre: ")
