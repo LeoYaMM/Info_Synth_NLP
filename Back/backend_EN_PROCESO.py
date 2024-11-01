@@ -13,7 +13,7 @@ app = FastAPI()
 # Configuración de CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500"],  # O usa ["*"] para permitir todos los dominios
+    allow_origins=["*"],  # O usa ["*"] para permitir todos los dominios
     allow_credentials=True,
     allow_methods=["*"],  # Permitir todos los métodos (GET, POST, etc.)
     allow_headers=["*"],  # Permitir todos los headers
@@ -32,7 +32,8 @@ def desencriptar_hash(hash_qr: str) -> str:
 
 # Pydantic model para las peticiones del QR
 class QRRequest(BaseModel): # Pydantic model para los QR
-    qr_data: str  # Este es el hash escaneado
+    qr_data: str
+    id_visitante: int
 
 class Visitante(BaseModel): # Pydantic model para los visitantes
     nombre: str
@@ -54,17 +55,21 @@ async def registrar_visitante(visitante: Visitante):
         raise HTTPException(status_code=500, detail="Error al crear visitante")
 
 # Ruta que recibe el QR
-@app.post("/scan_qr/") #! En proceso
+@app.post("/scan_qr")
 async def scan_qr(qr_request: QRRequest):
     qr_data = qr_request.qr_data
-    # Desencriptamos el hash
-    id_objeto = desencriptar_hash(qr_data)
+    id_visitante = qr_request.id_visitante
     
+    # Desencriptar el QR y obtener el id_objeto
+    id_objeto = desencriptar_hash(qr_data)
     if id_objeto is None:
         raise HTTPException(status_code=400, detail="Error al desencriptar el hash.")
     
-    # Pasa el ID del objeto a LlamaAPIResumen para obtener el resumen
-    resumen = resumen_Llama(id_objeto)
+    # Obtener el resumen usando id_objeto e id_visitante
+    resumen = resumen_Llama(id_objeto, id_visitante)
+    
+    return {"resumen": resumen}
+
 
 #! Revisa el flujo de aplicacion terminal si tienes dudas
 

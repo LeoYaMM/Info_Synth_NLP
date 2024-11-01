@@ -96,7 +96,7 @@ header h1 {
     margin-top: 20px;
 }
 
-.scanner-box, .explanation-box {
+.scanner-box, .explanation-box, .qr-reader, .qr-reader-results {
     border: 2px solid #ffffff;
     padding: 80px;
     width: 1000px;
@@ -144,7 +144,7 @@ button:hover {
         flex-direction: column;
     }
 
-    .scanner-box, .explanation-box {
+    .scanner-box, .explanation-box, #qr-reader, #qr-reader-results {
         width: 550px;
         height: 550px;
     }
@@ -168,7 +168,7 @@ button:hover {
         flex-direction: column;
     }
 
-    .scanner-box, .explanation-box {
+    .scanner-box, .explanation-box, #qr-reader, #qr-reader-results {
         width: 180px;
         height: 250px;
     }

@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kablammo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400..900&family=Kablammo&family=Updock&display=swap" rel="stylesheet">
+    <script src="libs/html5-qrcode-master//minified/html5-qrcode.min.js"></script>
 </head>
 <body>
     <header>
@@ -33,9 +34,9 @@
     
         <div class="scanner-container">
             <div class="scanner-box">
-                <img src="imagenesFront/Camera-removebg-preview.png" alt="Escanea para aprender">
-    
-                <p class="text-scan">¡Escanea para aprender!</p>
+                <div id="qr-reader"></div>
+                <div id="qr-reader-results"></div>
+                <p class="text-scan-in-sc">¡Escanea para aprender!</p>
             </div>
             <div class="explanation-box">
                 <p class="text-scan">Explicación</p>
@@ -47,5 +48,7 @@
     <footer>
         <p>&copy; 2024 Museo Nacional de Antropología</p>
     </footer>
+    
+    <script src="main.js"></script>
 </body>
 </html>

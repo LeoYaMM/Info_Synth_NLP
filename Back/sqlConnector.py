@@ -44,6 +44,23 @@ def crear_usuario_temporal(nombre, edad):
         finally:
             close_connection(connection)
 
+#Funcion para guardar el HASH generado en la base de datos, no retorna nada
+def guardar_hash(hash_qr):
+    """Guardar el HASH generado en la base de datos"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            insert_query = "INSERT INTO QR (Hash) VALUES (%s)" # Información dada
+            cursor.execute(insert_query, (hash_qr,))
+            connection.commit()
+            print(f"Hash '{hash_qr}' guardado con éxito.")
+        except Error as e:
+            print(f"Error al guardar el hash: {e}")
+        finally:
+            close_connection(connection)
+
+
 # Funcion para obtener el id del visitante, retorna el id del visitante
 def obtener_id_visitante(nombre, edad):
     """Obtener el ID de un visitante en la tabla Visitante"""
