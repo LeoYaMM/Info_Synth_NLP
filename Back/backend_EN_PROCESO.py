@@ -21,8 +21,8 @@ app.add_middleware(
 
 # Pydantic model para las peticiones del QR
 class QRRequest(BaseModel): # Pydantic model para los QR
-    qr_data: str
-    id_visitante: int
+    qr_data: str # Datos del QR
+    id_visitante: int  # ID del visitante a partir de las cookies
 
 class Visitante(BaseModel): # Pydantic model para los visitantes
     nombre: str
