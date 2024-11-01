@@ -39,7 +39,7 @@ class Visitante(BaseModel): # Pydantic model para los visitantes
     edad: int
 
 # Ruta para registrar un visitante
-@app.post("/registrar_visitante")
+@app.post("/registrar_visitante") #* Funciona correctamente
 async def registrar_visitante(visitante: Visitante):
     # Crea un usuario temporal en la base de datos
     crear_usuario_temporal(visitante.nombre, visitante.edad)
@@ -54,7 +54,7 @@ async def registrar_visitante(visitante: Visitante):
         raise HTTPException(status_code=500, detail="Error al crear visitante")
 
 # Ruta que recibe el QR
-@app.post("/scan_qr/")
+@app.post("/scan_qr/") #! En proceso
 async def scan_qr(qr_request: QRRequest):
     qr_data = qr_request.qr_data
     # Desencriptamos el hash
@@ -66,5 +66,10 @@ async def scan_qr(qr_request: QRRequest):
     # Pasa el ID del objeto a LlamaAPIResumen para obtener el resumen
     resumen = resumen_Llama(id_objeto)
 
+#! Revisa el flujo de aplicacion terminal si tienes dudas
+
+#! Endpoint para enviar  el resumen al frontend
+
+#! Endpoint para enviar finalizar el recorrido
 
 # Para correr el servidor de FastAPI: uvicorn main:app --reload
