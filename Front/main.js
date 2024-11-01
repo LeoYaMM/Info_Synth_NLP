@@ -1,6 +1,5 @@
-//! Integrar en el HTML  el código JavaScript que se encuentra en el archivo `script.js` 
-//! Agregar <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script> en el HTML
-//! Agregar funcion de leer QR, Agregar funcion que muestra la explicacion, Agrega funcion al boton de finalizar recorrido
+//! Agrega funcion al boton de continuar recorrido, para que inicie el escaner y borre el resumen
+//! Agrega funcion al boton de finalizar recorrido, para pasar a la trivia
 function onScanSuccess(decodedText) {
     console.log(`Código QR escaneado: ${decodedText}`);
 
@@ -38,7 +37,6 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
-
 
 function onScanFailure(error) {
     console.warn(`Error de escaneo: ${error}`);

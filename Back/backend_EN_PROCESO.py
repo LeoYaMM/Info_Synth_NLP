@@ -44,7 +44,7 @@ async def registrar_visitante(visitante: Visitante):
         raise HTTPException(status_code=500, detail="Error al crear visitante")
 
 # Ruta que recibe el QR
-@app.post("/scan_qr")
+@app.post("/scan_qr")  #* Funciona correctamente
 async def scan_qr(qr_request: QRRequest):
     qr_data = qr_request.qr_data
     id_visitante = qr_request.id_visitante
@@ -61,8 +61,6 @@ async def scan_qr(qr_request: QRRequest):
 
 
 #! Revisa el flujo de aplicacion terminal si tienes dudas
-
-#! Endpoint para enviar  el resumen al frontend
 
 #! Endpoint para enviar finalizar el recorrido
 
