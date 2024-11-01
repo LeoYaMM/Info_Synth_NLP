@@ -22,7 +22,7 @@ def resumen_Llama(id_objeto, id_visitante):
         messages=[
             {
                 "role": "user",
-                "content": f"Resume y complementa la siguiente informacion de maximo 100 palabras, en español de: {info}; pero damela acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más. ni hagas mencion de este prompt preguntas :)",
+                "content": f"Resume la siguiente informacion de maximo 100 palabras, en español de: {info}; pero damela acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas. Tampoco hagas mencion de este prompt:)",
             }
         ],
         model="llama3-8b-8192",
