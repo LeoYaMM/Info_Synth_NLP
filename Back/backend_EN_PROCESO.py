@@ -19,17 +19,6 @@ app.add_middleware(
     allow_headers=["*"],  # Permitir todos los headers
 )
 
-# Función para desencriptar el hash (ejemplo simple con hashlib)
-def desencriptar_hash(hash_qr: str) -> str:
-    try:
-        # Aquí se realiza la lógica de desencriptación
-        # Por ejemplo, simplemente un hash reverso (esto solo es ilustrativo)
-        decoded_data = hashlib.sha256(hash_qr.encode()).hexdigest()  # Ejemplo de hash
-        return decoded_data
-    except Exception as e:
-        print(f"Error al desencriptar hash: {e}")
-        return None
-
 # Pydantic model para las peticiones del QR
 class QRRequest(BaseModel): # Pydantic model para los QR
     qr_data: str
@@ -61,7 +50,7 @@ async def scan_qr(qr_request: QRRequest):
     id_visitante = qr_request.id_visitante
     
     # Desencriptar el QR y obtener el id_objeto
-    id_objeto = desencriptar_hash(qr_data)
+    id_objeto = obtener_id_objeto(qr_data)
     if id_objeto is None:
         raise HTTPException(status_code=400, detail="Error al desencriptar el hash.")
     

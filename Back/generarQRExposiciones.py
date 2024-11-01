@@ -43,6 +43,7 @@ def main():
             
             # Generar el hash basado en el ID
             hash_exposicion = generar_hash_exposicion(id_exposicion)
+            guardar_hash(hash_exposicion, id_exposicion)
             
             # Generar el QR con el hash
             nombre_archivo = f"qr_{nombre_exposicion}_{id_exposicion}.png"

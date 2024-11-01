@@ -45,21 +45,39 @@ def crear_usuario_temporal(nombre, edad):
             close_connection(connection)
 
 #Funcion para guardar el HASH generado en la base de datos, no retorna nada
-def guardar_hash(hash_qr):
-    """Guardar el HASH generado en la base de datos"""
+def guardar_hash(hash_qr, id_objeto):
+    """Guardar el HASH generado en la base de datos para un objeto específico"""
     connection = create_connection()
     if connection is not None:
         try:
             cursor = connection.cursor()
-            insert_query = "INSERT INTO QR (Hash) VALUES (%s)" # Información dada
-            cursor.execute(insert_query, (hash_qr,))
+            update_query = "UPDATE objeto_historico SET hash = %s WHERE ID_objeto = %s"
+            cursor.execute(update_query, (hash_qr, id_objeto))
             connection.commit()
-            print(f"Hash '{hash_qr}' guardado con éxito.")
+            print(f"Hash '{hash_qr}' guardado con éxito para el objeto ID {id_objeto}.")
         except Error as e:
             print(f"Error al guardar el hash: {e}")
         finally:
             close_connection(connection)
 
+# Funcion para obtener el HASH generado para un objeto específico dado el HASH, retorna el id_objeto
+def obtener_id_objeto(hash_qr):
+    """Obtener el ID del objeto histórico asociado a un HASH específico"""
+    connection = create_connection()
+    if connection is not None:
+        try:
+            cursor = connection.cursor()
+            select_query = "SELECT ID_objeto FROM objeto_historico WHERE hash = %s"
+            cursor.execute(select_query, (hash_qr,))
+            result = cursor.fetchone()
+            if result:
+                return result[0]
+            else:
+                return None
+        except Error as e:
+            print(f"Error al obtener el ID del objeto: {e}")
+        finally:
+            close_connection(connection)
 
 # Funcion para obtener el id del visitante, retorna el id del visitante
 def obtener_id_visitante(nombre, edad):
