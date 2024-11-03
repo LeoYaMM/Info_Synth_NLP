@@ -1,5 +1,14 @@
-//! Agrega funcion al boton de continuar recorrido, para que inicie el escaner y borre el resumen
-//! Agrega funcion al boton de finalizar recorrido, para pasar a la trivia
+
+const config = { fps: 10, qrbox: { width: 250, height: 250 }}; // Configuración global para html5QrCode
+let scanCount = 0; // Contador de escaneos
+
+// Obtener los elementos del DOM
+const textScanElement = document.querySelector(".text-scan");
+const finalizarRecorridoButton = document.getElementById("finalizar-recorrido");
+const continuarRecorridoButton = document.getElementById("continuar-recorrido");
+const html5QrCode = new Html5Qrcode("qr-reader");
+
+// Función para el escaneo exitoso
 function onScanSuccess(decodedText) {
     console.log(`Código QR escaneado: ${decodedText}`);
 
@@ -19,8 +28,17 @@ function onScanSuccess(decodedText) {
     })
     .then(response => response.json())
     .then(data => {
-        // Insertar el resumen en el elemento <p class="text-scan">
-        document.querySelector(".text-scan").textContent = data.resumen;
+        // Mostrar el resumen con el efecto de escritura
+        typeText(textScanElement, data.resumen, 50);
+
+        // Incrementar el contador de escaneos
+        scanCount += 1;
+        console.log(`Escaneos realizados: ${scanCount}`);
+
+        // Mostrar el botón "Finalizar recorrido" si se han escaneado 10 o más códigos QR
+        if (scanCount >= 10) {
+            finalizarRecorridoButton.style.display = "block";
+        }
     })
     .catch(error => console.error("Error al obtener el resumen:", error));
 
@@ -32,21 +50,35 @@ function onScanSuccess(decodedText) {
     });
 }
 
+// Función para obtener la cookie por su id_visitante
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+// Función para manejar errores en el escaneo
 function onScanFailure(error) {
     console.warn(`Error de escaneo: ${error}`);
 }
 
-const html5QrCode = new Html5Qrcode("qr-reader");
+// Función para simular el efecto de escritura en un elemento
+function typeText(element, text, delay = 50) {
+    element.textContent = "";
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            element.textContent += text[index];
+            index++;
+            setTimeout(type, delay);
+        }
+    }
+
+    type();
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-
     // Iniciar el escáner
     html5QrCode.start(
         { facingMode: "environment" },
@@ -56,4 +88,32 @@ document.addEventListener("DOMContentLoaded", () => {
     ).catch((err) => {
         console.error("Error al iniciar el escáner QR:", err);
     });
+});
+
+// Botón de continuar recorrido
+continuarRecorridoButton.addEventListener("click", () => {
+    // Limpiar el resumen
+    textScanElement.textContent = "";
+
+    // Detener el escáner si está activo y luego reiniciarlo
+    
+    html5QrCode.start(
+        { facingMode: "environment" },
+        config,
+        onScanSuccess,
+        onScanFailure
+    ).catch((err) => {
+        console.error("Error al iniciar el escáner QR:", err);
+    }).catch((err) => {
+        console.error("Error al detener el escáner antes de reiniciar:", err);
+    });
+});
+
+// Botón de finalizar recorrido
+finalizarRecorridoButton.addEventListener("click", () => {
+    // Detener el escáner si está activo
+    html5QrCode.stop()
+
+    // Redirigir a la página de trivia
+    window.location.href = "trivia.html";
 });
