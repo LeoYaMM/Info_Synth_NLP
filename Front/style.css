@@ -98,9 +98,9 @@ header h1 {
 
 .scanner-box, .explanation-box, .qr-reader, .qr-reader-results {
     border: 2px solid #ffffff;
-    padding: 80px;
-    width: 1000px;
-    height: 800px;
+    padding: 20px;
+    width: 500px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -143,13 +143,31 @@ button:hover {
     display: none;
 }
 
+#qr-reader {
+    width: 300px;  /* Ajusta el tamaño según sea necesario */
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.qr-box {
+    border: 2px solid #ffffff;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 50%;  /* Centrado vertical */
+    left: 50%; /* Centrado horizontal */
+    transform: translate(-50%, -50%);
+}
+
+
 /* Media query para tablets */
 @media (min-width: 600px) and (max-width: 900px) {
     .scanner-container {
         flex-direction: column;
     }
 
-    .scanner-box, .explanation-box, #qr-reader, #qr-reader-results {
+    .scanner-box, .explanation-box {
         width: 550px;
         height: 550px;
     }
@@ -173,7 +191,7 @@ button:hover {
         flex-direction: column;
     }
 
-    .scanner-box, .explanation-box, #qr-reader, #qr-reader-results {
+    .scanner-box, .explanation-box{
         width: 180px;
         height: 250px;
     }

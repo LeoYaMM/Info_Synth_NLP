@@ -1,5 +1,5 @@
 
-const config = { fps: 10, qrbox: { width: 250, height: 250 }}; // Configuración global para html5QrCode
+const config = { fps: 10, qrbox:{ width: 250, height: 250 }}; // Configuración global para html5QrCode
 let scanCount = 0; // Contador de escaneos
 
 // Obtener los elementos del DOM
@@ -29,7 +29,7 @@ function onScanSuccess(decodedText) {
     .then(response => response.json())
     .then(data => {
         // Mostrar el resumen con el efecto de escritura
-        typeText(textScanElement, data.resumen, 50);
+        typeText(textScanElement, data.resumen, 25);
 
         // Incrementar el contador de escaneos
         scanCount += 1;
@@ -63,7 +63,7 @@ function onScanFailure(error) {
 }
 
 // Función para simular el efecto de escritura en un elemento
-function typeText(element, text, delay = 50) {
+function typeText(element, text, delay = 25) {
     element.textContent = "";
     let index = 0;
 
@@ -96,7 +96,6 @@ continuarRecorridoButton.addEventListener("click", () => {
     textScanElement.textContent = "";
 
     // Detener el escáner si está activo y luego reiniciarlo
-    
     html5QrCode.start(
         { facingMode: "environment" },
         config,
@@ -104,15 +103,11 @@ continuarRecorridoButton.addEventListener("click", () => {
         onScanFailure
     ).catch((err) => {
         console.error("Error al iniciar el escáner QR:", err);
-    }).catch((err) => {
-        console.error("Error al detener el escáner antes de reiniciar:", err);
     });
 });
 
 // Botón de finalizar recorrido
 finalizarRecorridoButton.addEventListener("click", () => {
-    // Detener el escáner si está activo
-    html5QrCode.stop()
 
     // Redirigir a la página de trivia
     window.location.href = "trivia.html";
