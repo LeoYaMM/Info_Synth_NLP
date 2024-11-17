@@ -41,20 +41,32 @@ def califica_trivia_Llama(id_visitante):
     respuestas = obtener_respuestas_trivia(id_visitante)
     aciertos = 0
 
+    # for i in range(len(preguntas)):
+    #     # Formulacion de la pregunta
+    #     chat_completion = client.chat.completions.create(
+    #         messages=[
+    #             {
+    #                 "role": "user",
+    #                 "content": f"Tengo esta pregunta: {preguntas[i]}, mis respuesta es: {respuestas[i]}, calificala por favor, si es correcta solo escribe '1' si es incorrecta solo escribe '0'",
+    #             }
+    #         ],
+    #         model="llama3-8b-8192",
+    #         temperature=1,
+    #     )
+    #     print(chat_completion.choices[0].message.content)
+    #     if chat_completion.choices[0].message.content == "1":
+    #         aciertos += 1
+
     for i in range(len(preguntas)):
-        # Formulacion de la pregunta
-        chat_completion = client.chat.completions.create(
-            messages=[
-                {
-                    "role": "user",
-                    "content": f"Tengo esta pregunta: {preguntas[i]}, mis respuesta es: {respuestas[i]}, calificala por favor, si es correcta solo escribe '1' si es incorrecta solo escribe '0'",
-                }
-            ],
-            model="llama3-8b-8192",
+        # Calificación de la respuesta
+        response = model.generate_text(
+            prompt=f"Tengo esta pregunta: {preguntas[i]}, mi respuesta es: {respuestas[i]}, calificala por favor. Si es correcta solo escribe '1', si es incorrecta solo escribe '0'.",
             temperature=1,
+            max_output_tokens=10,
         )
-        print(chat_completion.choices[0].message.content)
-        if chat_completion.choices[0].message.content == "1":
+        calificacion = response.text.strip()
+        print(calificacion)
+        if calificacion == "1":
             aciertos += 1
 
     return aciertos
