@@ -3,13 +3,13 @@
 
 import os
 from sqlConnector import *
-from groq import Groq
-from langchain_groq import ChatGroq
+import google.generativeai as genai
+
+
+genai.configure(api_key=os.environ["API_KEY"])
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 def trivia_Llama(id_visitante):
-    api = os.getenv("GROQ_API_KEY")
-
-    client = Groq(api_key=api)
 
     #! Obtiene el id del visitante de las cookies
 
@@ -19,27 +19,21 @@ def trivia_Llama(id_visitante):
 
     for i in range(10):
         # Formulacion de la pregunta
-        chat_completion = client.chat.completions.create(
-            messages=[
-                {
-                    "role": "user",
-                    "content": f"A partir de estos resumenes: {info}, dame una pregunta de opción multiple en español; limitatate a dar solo las preguntas con sus opciones nada mas pero damela en nivel de dificultad acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas y tampoco me des la respuesta correcta :)",
-                }
-            ],
-            model="llama3-8b-8192",
-            temperature=1,
+        respuesta = model.generate_content( 
+            prompt=f"A partir de estos resumenes: {info}, dame una pregunta de opción multiple en español; 
+                    limitatate a dar solo las preguntas con sus opciones nada mas pero damela en nivel de dificultad acorde a mi edad {edadVisitante},
+                     al final de tu respuesta no hagas más preguntas y tampoco me des la respuesta correcta",
+            max_tokens=100,
+            temperature=0,
         )
-        print(chat_completion.choices[0].message.content)
-        print("Ingresa tu respuesta: ")
+        pregunta =  respuesta.text.strip()
+        print(pregunta)
+        print("Ingresa tu respuesta")
         respuesta = input()
-        guarda_pregunta_trivia(id_visitante, chat_completion.choices[0].message.content)
-        guarda_respuesta_trivia(id_visitante, respuesta, chat_completion.choices[0].message.content)
+        guarda_pregunta_trivia(id_visitante, pregunta)
+        guarda_respuesta_trivia(id_visitante, respuesta, respuesta, pregunta)
 
 def califica_trivia_Llama(id_visitante):
-    api = os.getenv("GROQ_API_KEY")
-
-    client = Groq(api_key=api)
-
     #! Obtiene el id del visitante de las cookies
 
     # Obtiene las preguntas de la trivia
