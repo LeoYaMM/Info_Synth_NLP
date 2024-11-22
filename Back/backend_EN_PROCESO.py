@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlConnector import *
 import hashlib
-from LlamaAPIResumen import resumen_Llama
+from GeminiAPIResumen import resumen_gem
 
 app = FastAPI()
 
@@ -55,7 +55,7 @@ async def scan_qr(qr_request: QRRequest):
         raise HTTPException(status_code=400, detail="Error al desencriptar el hash.")
     
     # Obtener el resumen usando id_objeto e id_visitante
-    resumen = resumen_Llama(id_objeto, id_visitante)
+    resumen = resumen_gem(id_objeto, id_visitante)
     
     return {"resumen": resumen}
 
