@@ -17,7 +17,7 @@ def trivia_Llama(id_visitante):
     info = obtener_resumenes_visitantes(id_visitante) # Lista de resumenes
     edadVisitante = obtener_edad_usuario(id_visitante)
 
-    for i in range(10):
+    for _ in range(10):
         # Formulacion de la pregunta
         respuesta = model.generate_content( 
             contents=f"A partir de estos resumenes: {info}, dame una pregunta de opción multiple en español; 
