@@ -28,6 +28,7 @@ function onScanSuccess(decodedText) {
     })
     .then(response => response.json())
     .then(data => {
+        console.log("Respuesta del backend:", data);
         // Mostrar el resumen con el efecto de escritura
         typeText(textScanElement, data.resumen, 25);
 

@@ -23,3 +23,4 @@ def resumen_gem(id_objeto, id_visitante):
     )
 
     guarda_resumen_usuario(id_visitante, response.text, id_objeto)
+    return response.text
