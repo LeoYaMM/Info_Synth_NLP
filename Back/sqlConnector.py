@@ -123,7 +123,7 @@ def obtener_informacion_objeto(id_objeto):
     if connection is not None:
         try:
             cursor = connection.cursor()
-            select_query = "SELECT Informacion FROM objeto_historico WHERE ID_objeto = %s"
+            select_query = "SELECT Information FROM objeto_historico WHERE ID_objeto = %s"
             cursor.execute(select_query, (id_objeto,))
             objeto = cursor.fetchone()
             if objeto is not None:
