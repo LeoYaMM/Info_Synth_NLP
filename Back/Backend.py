@@ -6,7 +6,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlConnector import *
 import hashlib
-from GeminiAPIResumen import resumen_gem
+from GeminiAPIResumen import resumen_Gemini
+from GeminiAPITrivia import *
 
 app = FastAPI()
 
@@ -27,6 +28,7 @@ class QRRequest(BaseModel): # Pydantic model para los QR
 class Visitante(BaseModel): # Pydantic model para los visitantes
     nombre: str
     edad: int
+
 
 # Ruta para registrar un visitante
 @app.post("/registrar_visitante") #* Funciona correctamente
@@ -55,13 +57,22 @@ async def scan_qr(qr_request: QRRequest):
         raise HTTPException(status_code=400, detail="Error al desencriptar el hash.")
     
     # Obtener el resumen usando id_objeto e id_visitante
-    resumen = resumen_gem(id_objeto, id_visitante)
+    resumen = resumen_Gemini(id_objeto, id_visitante)
     
     return {"resumen": resumen}
 
+# Ruta para la trivia
+@app.post("/trivia")  
+async def trivia(id_visitante):
+    info = obtener_resumenes_visitantes(id_visitante)
+    edadVisitante = obtener_edad_usuario(id_visitante)
+
+    for i in range(len(info)):
+        pregunta = pregunta_trivia_Gemini(info[i], edadVisitante, id_visitante)
+        print(pregunta)
 
 #! Revisa el flujo de aplicacion terminal si tienes dudas
 
 #! Endpoint para enviar finalizar el recorrido
 
-# Para correr el servidor de FastAPI: uvicorn main:app --reload
+# Para correr el servidor de FastAPI: uvicorn Backend:app --reload

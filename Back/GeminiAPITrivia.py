@@ -9,29 +9,23 @@ import google.generativeai as genai
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel("gemini-1.5-flash")
 
-def trivia_Llama(id_visitante):
+def pregunta_trivia_Gemini(info, edadVisitante, id_visitante):
 
-    #! Obtiene el id del visitante de las cookies
+    # Formulacion de la pregunta
+    respuesta = model.generate_content( 
+        contents=f"A partir de este resumen: {info}. Dame una pregunta de opción multiple en español; 
+                limitatate a dar solo la pregunta con sus 4 opciones nada mas pero damela en nivel de dificultad acorde a mi edad {edadVisitante},
+                al final de tu respuesta no hagas más preguntas y tampoco me des la respuesta correcta"
+    )
+    pregunta =  respuesta.text
+    guarda_pregunta_trivia(id_visitante, pregunta)
+    return pregunta
 
-    # Informacion de los resumenes y la edad del visitante
-    info = obtener_resumenes_visitantes(id_visitante) # Lista de resumenes
-    edadVisitante = obtener_edad_usuario(id_visitante)
+def respuesta_trivia_Gemini(info, edadVisitante, id_visitante):
+    pass
+    #guarda_respuesta_trivia(id_visitante, respuesta, respuesta, pregunta)
 
-    for _ in range(10):
-        # Formulacion de la pregunta
-        respuesta = model.generate_content( 
-            contents=f"A partir de estos resumenes: {info}, dame una pregunta de opción multiple en español; 
-                    limitatate a dar solo las preguntas con sus opciones nada mas pero damela en nivel de dificultad acorde a mi edad {edadVisitante},
-                    al final de tu respuesta no hagas más preguntas y tampoco me des la respuesta correcta"
-        )
-        pregunta =  respuesta.text.strip()
-        print(pregunta)
-        print("Ingresa tu respuesta")
-        respuesta = input()
-        guarda_pregunta_trivia(id_visitante, pregunta)
-        guarda_respuesta_trivia(id_visitante, respuesta, respuesta, pregunta)
-
-def califica_trivia_Llama(id_visitante):
+def califica_trivia_Gemini(id_visitante):
     #! Obtiene el id del visitante de las cookies
 
     # Obtiene las preguntas de la trivia

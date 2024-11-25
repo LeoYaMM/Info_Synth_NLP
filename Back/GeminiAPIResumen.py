@@ -8,7 +8,7 @@ import google.generativeai as genai
 # Configurar genai con la clave de API
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
-def resumen_gem(id_objeto, id_visitante):
+def resumen_Gemini(id_objeto, id_visitante):
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
     model = genai.GenerativeModel("gemini-1.5-flash")
 
