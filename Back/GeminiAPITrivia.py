@@ -13,9 +13,9 @@ def pregunta_trivia_Gemini(info, edadVisitante, id_visitante):
 
     # Formulacion de la pregunta
     respuesta = model.generate_content( 
-        contents=f"A partir de este resumen: {info}. Dame una pregunta de opción multiple en español; 
+        contents=f"""A partir de este resumen: {info}. Dame una pregunta de opción multiple en español; 
                 limitatate a dar solo la pregunta con sus 4 opciones nada mas pero damela en nivel de dificultad acorde a mi edad {edadVisitante},
-                al final de tu respuesta no hagas más preguntas y tampoco me des la respuesta correcta"
+                al final de tu respuesta no hagas más preguntas y tampoco me des la respuesta correcta"""
     )
     pregunta =  respuesta.text
     guarda_pregunta_trivia(id_visitante, pregunta)
