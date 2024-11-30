@@ -7,6 +7,7 @@
 
 body {
     background-color: #707b7c ;
+    
 }
 
 header {
@@ -61,6 +62,26 @@ header h1 {
     color: white
 }
 
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trivia-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Asegura que la caja no exceda el tamaño del contenedor */
+    max-width: 400px; 
+}
+
+
 .social-media img {
     height: 30px;
     margin-left: 10px;
@@ -101,19 +122,6 @@ footer {
     width: 100%;
 }
 
-.container {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    text-align: center;
-}
-
-.trivia-box {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
 /* h1 {
     font-size: 1.8em;

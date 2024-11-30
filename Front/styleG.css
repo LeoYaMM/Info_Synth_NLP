@@ -1,0 +1,266 @@
+/* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-y: scroll;
+  }
+  
+  .container {
+    width: 100%;
+    height: calc(100%-100px);
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory; 
+    overflow-y: scroll;
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  .section {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 44px;
+    font-weight: bold;
+  }
+  
+  .logo span {
+    color: green;
+  }
+
+  .title {
+    font-size: 82px; 
+    font-weight: bold; 
+    margin-top: auto;
+    margin-bottom: 20px; 
+    line-height: 1.4; 
+    color: #333; 
+  }
+
+  .image {
+    width: 100%; 
+    max-width: 900px; 
+    height: auto; 
+    margin: 0 auto; 
+}
+  
+  .menu a {
+    position: relative; 
+    margin: 0 10px;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+  }
+
+  .menu a .tooltip {
+    visibility: hidden; 
+    opacity: 0; 
+    position: absolute; 
+    top: 120%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333; 
+    color: #fff; 
+    text-align: left; 
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: normal; 
+    width: auto; 
+    max-width: 200px; 
+    z-index: 10; 
+    transition: opacity 0.3s ease, visibility 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+  
+  /* Triángulo en la parte superior del tooltip */
+  .menu a .tooltip::before {
+    content: "";
+    position: absolute;
+    bottom: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent; 
+  }
+  
+  /* Mostrar tooltip al hacer hover */
+  .menu a:hover .tooltip {
+    visibility: visible;
+    opacity: 1; 
+  }
+  
+  .menu a::before {
+    content: "";
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 0; 
+    height: 3px; 
+    background-color: #555; 
+    transition: width 0.3s ease-out; 
+  }
+  
+  .menu a:hover::before {
+    width: 100%; 
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 0px;
+    margin-top: -100px;
+  }
+  
+  .left-section {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .right-section{
+    flex: 1;
+    padding: 20px;
+    border-left: 2px solid #090909;
+    margin-bottom: 20|0px;
+  }
+  
+  /* Contenedor de los cuadros */
+.lower-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px;
+    padding: 30px;
+    margin-top: 20px;
+  }
+  
+  /* Estilo de los cuadros */
+  .qr-box, .info-box {
+    width: 80%; 
+    height: 250px; 
+    border: 2px solid #000000; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
+  }
+  
+  /* Imagen del QR */
+  .qr-image {
+    max-width: 100px; 
+    max-height: 100px;
+    margin-bottom: 10px; 
+  }
+  
+  /* Texto dentro de los cuadros */
+  .qr-box p, .info-box p {
+    font-size: 14px;
+    color: #555; 
+    margin: 0;
+  }
+  
+  .start-button {
+    padding: 15px 40px; 
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 0px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease-out;
+    display: inline-block;
+    text-align: center; 
+}
+  
+  .start-button:hover {
+    background-color: black;
+    color: white;
+  }
+
+  /* Estilos del modal */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Contenido del modal */
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Botón para cerrar el modal */
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  /* Inputs del formulario */
+  #userForm label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  #userForm input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Botón enviar */
+  .submit-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: green;
+  }
