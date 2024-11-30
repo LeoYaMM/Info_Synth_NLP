@@ -11,30 +11,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400..900&family=Kablammo&family=Updock&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="logo-container">
-            <img src="imagenesFront/mnaLogoSinF.png" alt="MNA Logo" class="logo">
+            <img src="imagenesFront/QuetzAI.png" alt="MNA Logo" class="logo">
         </div>
-        <h1 class="header-title">THOT</h1>
-        <div class="social-media">
-            <a href="https://www.facebook.com/MNAinah"><img src="imagenesFront/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="imagenesFront/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="imagenesFront/tiktok.png" alt="Tiktok"></a>
-        </div>
+        <h1 class="logo">THOT</h1>
+        <nav class="menu">
+            <a href="https://www.facebook.com/MNAinah">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Tiktok</a>
+        </nav>
     </header>
-    <div class="container">
-        <div class="trivia-box">
-            <h1>Pregunta</h1>
-            <p id="question">Aquí va la pregunta que se cargará desde el servidor.</p>
-            <div class="options">
-                <button class="option" onclick="selectOption(1)">Opción 1</button>
-                <button class="option" onclick="selectOption(2)">Opción 2</button>
-                <button class="option" onclick="selectOption(3)">Opción 3</button>
-                <button class="option" onclick="selectOption(4)">Opción 4</button>
+    <main class="main-content">
+        <div class="container">
+            <div class="trivia-box">
+                <h1>Pregunta</h1>
+                <p id="question">Aquí va la pregunta que se cargará desde el servidor.</p>
+                <div class="options">
+                    <button class="option" onclick="selectOption(1)">Opción 1</button>
+                    <button class="option" onclick="selectOption(2)">Opción 2</button>
+                    <button class="option" onclick="selectOption(3)">Opción 3</button>
+                    <button class="option" onclick="selectOption(4)">Opción 4</button>
+                </div>
             </div>
         </div>
-    </div>
-
+    </main>
     <script>
         // Esta función se ejecutará cuando el usuario seleccione una opción
         function selectOption(option) {

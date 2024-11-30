@@ -2,7 +2,7 @@
 #* Status: Complete
 
 import os
-from sqlConnector import *
+from .sqlConnector import *
 import google.generativeai as genai
 
 # Configurar genai con la clave de API

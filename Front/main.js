@@ -1,4 +1,3 @@
-
 const config = { fps: 10, qrbox:{ width: 250, height: 250 }}; // Configuración global para html5QrCode
 let scanCount = 0; // Contador de escaneos
 
@@ -7,6 +6,38 @@ const textScanElement = document.querySelector(".text-scan");
 const finalizarRecorridoButton = document.getElementById("finalizar-recorrido");
 const continuarRecorridoButton = document.getElementById("continuar-recorrido");
 const html5QrCode = new Html5Qrcode("qr-reader");
+const startButton = document.querySelector(".start-button");
+const modal = document.getElementById("modal");
+const closeButton = document.querySelector(".close-button");
+const userForm = document.getElementById("userForm");
+
+// Mostrar el modal al hacer clic en el botón "INICIAR"
+startButton.addEventListener("click", () => {
+    modal.style.display = "block";
+});
+
+// Cerrar el modal al hacer clic en el botón de cerrar
+closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Cerrar el modal al hacer clic fuera del contenido del modal
+window.addEventListener("click", (event) => {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+});
+
+// Manejar el envío del formulario
+userForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const age = document.getElementById("age").value;
+    document.cookie = `name=${name}; path=/`;
+    document.cookie = `age=${age}; path=/`;
+    modal.style.display = "none";
+    alert("Datos guardados correctamente.");
+});
 
 // Función para el escaneo exitoso
 function onScanSuccess(decodedText) {

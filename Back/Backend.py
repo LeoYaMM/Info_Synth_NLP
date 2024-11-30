@@ -4,10 +4,10 @@
 from fastapi import *
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from sqlConnector import *
+from .sqlConnector import *
 import hashlib
-from GeminiAPIResumen import resumen_Gemini
-from GeminiAPITrivia import *
+from .GeminiAPIResumen import resumen_Gemini
+from .GeminiAPITrivia import *
 
 app = FastAPI()
 

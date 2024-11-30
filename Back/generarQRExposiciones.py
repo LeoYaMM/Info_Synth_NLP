@@ -3,7 +3,7 @@
 
 import hashlib
 import qrcode
-from sqlConnector import *
+from .sqlConnector import *
 
 # Función para generar el hash basado en el ID de la exposición
 def generar_hash_exposicion(id_exposicion):

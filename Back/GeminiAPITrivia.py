@@ -2,7 +2,7 @@
 #! Status: In Progress
 
 import os
-from sqlConnector import *
+from .sqlConnector import *
 import google.generativeai as genai
 
 

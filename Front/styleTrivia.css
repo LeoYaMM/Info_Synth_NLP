@@ -6,17 +6,18 @@
 }
 
 body {
-    background-color: #707b7c ;
-    
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-y: scroll;
 }
 
-header {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #4a4a4a;
-    padding: 50px;
-    margin-top: 0px;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container {
@@ -27,39 +28,33 @@ header {
 .logo {
     height: 50px;
     margin-right: 10px;
+    font-size: 44px;
+    font-weight: bold;
 }
 
-header h1 {
-    color: white;
-    font-size: 1.5rem;
+.logo span {
+    color: green;
 }
 
-.header-title {
+.menu a {
+    position: relative;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    color: #000;
+}
+
+.main-content {
     flex: 1;
-    font-family: "Bebas Neue", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings: "MORF" 0; /* Sintaxis corregida */
-    text-align: center;
-    font-size: 1.8rem;
-    color: white;
-}
-.updock-regular {
-    font-family: "Updock", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-.text-bienvenido {
-    font-family: 'Times New Roman', Times, serif;
-    color: white;
-    font-size: 1.5rem;
-    margin-top: 20px;
-} 
-
-.text-scan{
-    color: white
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 20px;
 }
 
 .container {
@@ -77,62 +72,8 @@ header h1 {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Asegura que la caja no exceda el tamaño del contenedor */
-    max-width: 400px; 
-}
-
-
-.social-media img {
-    height: 30px;
-    margin-left: 10px;
-}
-
-
-.scanner-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     width: 100%;
-    margin-top: 20px;
-}
-
-.scanner-box, .explanation-box {
-    border: 2px solid #ffffff;
-    padding: 80px;
-    width: 1000px;
-    height: 800px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 20px;
-}
-
-.scanner-box img {
-    height: 200px;
-    margin-bottom: 100px;
-}
-
-footer {
-    background-color: #4a4a4a;
-    color: white;
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 70px;
-    width: 100%;
-}
-
-
-/* h1 {
-    font-size: 1.8em;
-    color: #333333;
-    margin-bottom: 10px;
-} */
-
-p {
-    font-size: 1.2em;
-    color: #666666;
-    margin-bottom: 20px;
+    max-width: 400px;
 }
 
 .options {
@@ -154,7 +95,6 @@ p {
 .option:hover {
     background-color: #45a049;
 }
-
 
 /* Media query para tablets */
 @media (min-width: 600px) and (max-width: 900px) {
