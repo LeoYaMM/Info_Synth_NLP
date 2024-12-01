@@ -1,44 +1,43 @@
-const config = { fps: 10, qrbox:{ width: 250, height: 250 }}; // Configuración global para html5QrCode
-let scanCount = 0; // Contador de escaneos
-
 // Obtener los elementos del DOM
-const textScanElement = document.querySelector(".text-scan");
+const textScanElement = document.querySelector(".info-box");
 const finalizarRecorridoButton = document.getElementById("finalizar-recorrido");
 const continuarRecorridoButton = document.getElementById("continuar-recorrido");
 const html5QrCode = new Html5Qrcode("qr-reader");
-const startButton = document.querySelector(".start-button");
-const modal = document.getElementById("modal");
-const closeButton = document.querySelector(".close-button");
-const userForm = document.getElementById("userForm");
+
 const questionBox = document.getElementById("question");
+const triviaButton1 = document.getElementsByClassName("option1")
+const triviaButton2 = document.getElementsByClassName("option2")
+const triviaButton3 = document.getElementsByClassName("option3")
+const triviaButton4 = document.getElementsByClassName("option4")
 
-// Mostrar el modal al hacer clic en el botón "INICIAR"
-startButton.addEventListener("click", () => {
-    modal.style.display = "block";
-});
+const config = { fps: 10, qrbox:{ width: 250, height: 250 }}; // Configuración global para html5QrCode
+let scanCount = 0; // Contador de escaneos
 
-// Cerrar el modal al hacer clic en el botón de cerrar
-closeButton.addEventListener("click", () => {
-    modal.style.display = "none";
-});
 
-// Cerrar el modal al hacer clic fuera del contenido del modal
-window.addEventListener("click", (event) => {
-    if (event.target == modal) {
-        modal.style.display = "none";
+
+// Función para enviar los datos del visitante al backend
+function enviarDatos(nombre, edad) {
+    fetch("http://127.0.0.1:8000/registrar_visitante", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre, edad })
+    })
+    .then(response => {
+        if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
     }
-});
+        return response.json();
+    })
+    .then(data => {
+        // Guardar el ID del visitante en las cookies
+        document.cookie = `id_visitante=${data.id_visitante}; path=/; SameSite=Lax`;
 
-// Manejar el envío del formulario
-userForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const name = document.getElementById("name").value;
-    const age = document.getElementById("age").value;
-    document.cookie = `name=${name}; path=/`;
-    document.cookie = `age=${age}; path=/`;
-    modal.style.display = "none";
-    alert("Datos guardados correctamente.");
-});
+    })
+    .catch(error => {
+        console.error("Error al enviar datos:", error);
+        alert("Hubo un problema al registrar tus datos. Por favor, inténtalo de nuevo.");
+    });
+}
 
 // Función para el escaneo exitoso
 function onScanSuccess(decodedText) {
@@ -83,14 +82,27 @@ function onScanSuccess(decodedText) {
     });
 }
 
+
 //Funcion para mostrar la trivia
-/*function showTrivia(){
-    fetch ("http://127.0.0.1:8000/trivia"){
+function showTrivia(){
+    fetch ("http://127.0.0.1:8000/trivia", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ })
-    }
-}*/
+        // body: JSON.stringify({ })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Respuesta del backend:", data);
+        // Mostrar la pregunta con el efecto de escritura
+        typeText(questionBox, data["pregunta"], 25);
+        // Mostrar las opciones de respuesta
+        typeText(triviaButton1, data["opciones"][0], 25);
+        typeText(triviaButton2, data["opciones"][1], 25);
+        typeText(triviaButton3, data["opciones"][2], 25);
+        typeText(triviaButton4, data["opciones"][3], 25);
+    })
+    .catch(error => console.error("Error al obtener la trivia:", error));
+}
 
 // Función para obtener la cookie por su id_visitante
 function getCookie(name) {
@@ -119,6 +131,54 @@ function typeText(element, text, delay = 25) {
 
     type();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Selección de elementos
+    const modal = document.getElementById("modal");
+    const startButton = document.querySelector(".start-button");
+    const closeButton = document.querySelector(".close-button");
+    const userForm = document.getElementById("userForm");
+    
+        // Abrir el modal al hacer clic en el botón INICIAR
+        startButton.addEventListener("click", () => {
+        modal.style.display = "flex"; // Mostrar el modal
+        });
+    
+        // Cerrar el modal al hacer clic en la "X"
+        closeButton.addEventListener("click", () => {
+        modal.style.display = "none"; // Ocultar el modal
+        });
+    
+        // Cerrar el modal al hacer clic fuera del contenido del modal
+        window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none"; // Ocultar el modal
+        }
+        });
+    
+        // Manejar el envío del formulario
+        userForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Evitar el envío predeterminado
+    
+        // Obtener valores del formulario
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+    
+        
+        // Enviar los datos al backend
+        enviarDatos(name, age);
+    
+        // Ocultar el modal
+        modal.style.display = "none";
+    
+        // Scroll automático hacia el final de la página
+        window.scrollTo({
+            top: document.body.scrollHeight, // Posición final de la página
+            behavior: "smooth", // Desplazamiento suave
+        });
+        });
+    
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     // Iniciar el escáner

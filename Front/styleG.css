@@ -196,7 +196,7 @@ body {
     text-align: center; 
 }
   
-  .start-button:hover {
+  .start-button:hover, #continuar-recorrido:hover, #finalizar-recorrido:hover {
     background-color: black;
     color: white;
   }
