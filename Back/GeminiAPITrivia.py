@@ -4,22 +4,24 @@
 import os
 from .sqlConnector import *
 import google.generativeai as genai
+import json
 
 
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 def pregunta_trivia_Gemini(info, edadVisitante, id_visitante):
-
     # Formulacion de la pregunta
     respuesta = model.generate_content( 
         contents=f"""A partir de este resumen: {info}. Dame una pregunta de opción multiple en español; 
-                limitatate a dar solo la pregunta con sus 4 opciones nada mas pero damela en nivel de dificultad acorde a mi edad {edadVisitante},
-                al final de tu respuesta no hagas más preguntas y tampoco me des la respuesta correcta"""
+                limitatate a dar solo la pregunta con sus 4 opciones y la opcion correcta nada mas pero damela en nivel de dificultad 
+                acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas, damelas en el formato del
+                siguiente ejemplo pero quita la parte ```json``` al inicio y al final: {{"pregunta" : "..?", "opciones" : ["Si", "No", "Tal vez", "No se"], 
+                "respuesta" : "Si"}}"""
     )
-    pregunta =  respuesta.text
+    pregunta = respuesta.text
     guarda_pregunta_trivia(id_visitante, pregunta)
-    return pregunta
+    return json.loads(pregunta)
 
 def respuesta_trivia_Gemini(info, edadVisitante, id_visitante):
     pass

@@ -10,6 +10,7 @@ const startButton = document.querySelector(".start-button");
 const modal = document.getElementById("modal");
 const closeButton = document.querySelector(".close-button");
 const userForm = document.getElementById("userForm");
+const questionBox = document.getElementById("question");
 
 // Mostrar el modal al hacer clic en el botón "INICIAR"
 startButton.addEventListener("click", () => {
@@ -80,6 +81,11 @@ function onScanSuccess(decodedText) {
     }).catch((err) => {
         console.error("No se pudo detener el escáner:", err);
     });
+}
+
+//Funcion para mostrar la trivia
+function showTrivia(){
+    fetch
 }
 
 // Función para obtener la cookie por su id_visitante
