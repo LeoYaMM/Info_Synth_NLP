@@ -1,8 +1,9 @@
 # Description: Este script se encarga de conectarse con el front y el back para realizar la lectura de los QRs y la generación de preguntas de trivia.
 #! Status: In Progress
-
+from fastapi.staticfiles import StaticFiles
 from fastapi import *
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 from sqlConnector import *
 from GeminiAPIResumen import resumen_Gemini
@@ -18,6 +19,14 @@ app.add_middleware(
     allow_methods=["*"],  # Permitir todos los métodos (GET, POST, etc.)
     allow_headers=["*"],  # Permitir todos los headers
 )
+
+# Esta linea hace la configuracion para que lea los archivos HTML del front
+app.mount("/Front", StaticFiles(directory="Front", html=True), name="Front")
+
+# aqui se define la ruta principal para que mande al index
+@app.get("/")
+async def read_index():
+    return RedirectResponse(url="/Front/indexG.html")
 
 # Pydantic model para las peticiones del QR
 class QRRequest(BaseModel): # Pydantic model para los QR

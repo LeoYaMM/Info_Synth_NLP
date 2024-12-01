@@ -68,15 +68,15 @@ function onScanSuccess(decodedText) {
         if (scanCount >= 10) {
             finalizarRecorridoButton.style.display = "block";
         }
+
+        // Detener el escáner después de un escaneo exitoso
+        html5QrCode.stop().then(() => {
+            console.log("Escáner detenido.");
+        }).catch((err) => {
+            console.error("No se pudo detener el escáner:", err);
+        });
     })
     .catch(error => console.error("Error al obtener el resumen:", error));
-
-    // Detener el escáner después de un escaneo exitoso
-    html5QrCode.stop().then(() => {
-        console.log("Escáner detenido.");
-    }).catch((err) => {
-        console.error("No se pudo detener el escáner:", err);
-    });
 }
 
 //Funcion para mostrar la trivia
