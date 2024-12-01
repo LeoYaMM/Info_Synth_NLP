@@ -2,7 +2,7 @@
 #! Status: In Progress
 
 import os
-from .sqlConnector import *
+from sqlConnector import *
 import google.generativeai as genai
 import json
 
@@ -13,7 +13,7 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 def pregunta_trivia_Gemini(info, edadVisitante, id_visitante):
     # Formulacion de la pregunta
     respuesta = model.generate_content( 
-        contents=f"""A partir de este resumen: {info}. Dame una pregunta de opción multiple en español; 
+        contents=f"""A partir de este resumen: {info}. Dame una pregunta de opción multiple en ingles; 
                 limitatate a dar solo la pregunta con sus 4 opciones y la opcion correcta nada mas pero damela en nivel de dificultad 
                 acorde a mi edad {edadVisitante}, al final de tu respuesta no hagas más preguntas, damelas en el formato del
                 siguiente ejemplo pero quita la parte ```json``` al inicio y al final: {{"pregunta" : "..?", "opciones" : ["Si", "No", "Tal vez", "No se"], 

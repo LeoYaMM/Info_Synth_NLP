@@ -3,7 +3,7 @@
 
 import hashlib
 import qrcode
-from .sqlConnector import *
+from sqlConnector import *
 
 # Función para generar el hash basado en el id_sala
 def generar_hash_sala(id_sala):

@@ -84,9 +84,13 @@ function onScanSuccess(decodedText) {
 }
 
 //Funcion para mostrar la trivia
-function showTrivia(){
-    fetch
-}
+/*function showTrivia(){
+    fetch ("http://127.0.0.1:8000/trivia"){
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ })
+    }
+}*/
 
 // Función para obtener la cookie por su id_visitante
 function getCookie(name) {
