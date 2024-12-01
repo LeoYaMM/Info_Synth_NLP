@@ -10,10 +10,7 @@ const triviaButton2 = document.getElementsByClassName("option2")
 const triviaButton3 = document.getElementsByClassName("option3")
 const triviaButton4 = document.getElementsByClassName("option4")
 
-const config = { fps: 10, qrbox:{ width: 250, height: 250 }}; // Configuración global para html5QrCode
 let scanCount = 0; // Contador de escaneos
-
-
 
 // Función para enviar los datos del visitante al backend
 function enviarDatos(nombre, edad) {
@@ -81,7 +78,6 @@ function onScanSuccess(decodedText) {
         console.error("No se pudo detener el escáner:", err);
     });
 }
-
 
 //Funcion para mostrar la trivia
 function showTrivia(){
@@ -181,16 +177,21 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Iniciar el escáner
-    html5QrCode.start(
-        { facingMode: "environment" },
-        config,
-        onScanSuccess,
-        onScanFailure
+    const qrReader = new Html5Qrcode("qr-reader");
+
+    qrReader.start(
+        { facingMode: "environment" }, // Usa la cámara trasera
+        {
+            fps: 1, // Velocidad de escaneo
+            qrbox: { width: 250, height: 250 }, // Tamaño del área de escaneo
+        },
+        onScanSuccess, // Función para manejar un escaneo exitoso
+        onScanFailure // Función para manejar errores en el escaneo
     ).catch((err) => {
         console.error("Error al iniciar el escáner QR:", err);
     });
 });
+
 
 // Botón de continuar recorrido
 continuarRecorridoButton.addEventListener("click", () => {
