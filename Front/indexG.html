@@ -48,14 +48,23 @@
   </main>
   <section class="lower-section">
     <div class="qr-box">
-      <img src="img/Camera-removebg-preview.png" alt="Código QR" class="qr-image">
+      <div class="scanner-box">
+        <div id="qr-reader"></div>
+        <div class="qrbox"></div>
+      </div>
       <p>Coloca aquí el código QR sobre el que quieras resumir la información</p>
     </div>
     <div class="info-box">
       <p>En este recuadro aparecerá la síntesis de información</p>
     </div>
   </section>
+  <div class="buttonSection">
+    <button type="submit" id="continuar-recorrido">Continuar Recorrido</button>
+  <br><br>
+  <button id="finalizar-recorrido" style="display: none;" >Finalizar Recorrido</button>
+  </div>
 
+  <script src="main.js" ></script>
   <script src="scriptG.js"></script>
   <div id="modal" class="modal">
     <div class="modal-content">

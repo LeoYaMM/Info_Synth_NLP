@@ -183,7 +183,7 @@ body {
     margin: 0;
   }
   
-  .start-button {
+  .start-button, #continuar-recorrido, #finalizar-recorrido {
     padding: 15px 40px; 
     font-size: 18px;
     background-color: white;
@@ -263,4 +263,13 @@ body {
   
   .submit-button:hover {
     background-color: green;
+  }
+
+  .buttonSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    margin-top: 20px;
   }
