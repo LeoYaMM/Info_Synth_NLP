@@ -23,10 +23,6 @@ def pregunta_trivia_Gemini(info, edadVisitante, id_visitante):
     guarda_pregunta_trivia(id_visitante, pregunta)
     return json.loads(pregunta)
 
-def respuesta_trivia_Gemini(info, edadVisitante, id_visitante):
-    pass
-    #guarda_respuesta_trivia(id_visitante, respuesta, respuesta, pregunta)
-
 def califica_trivia_Gemini(id_visitante):
     #! Obtiene el id del visitante de las cookies
 

@@ -8,6 +8,7 @@ from pydantic import BaseModel
 from sqlConnector import *
 from GeminiAPIResumen import resumen_Gemini
 from GeminiAPITrivia import *
+import json
 
 app = FastAPI()
 
@@ -21,12 +22,12 @@ app.add_middleware(
 )
 
 # Esta linea hace la configuracion para que lea los archivos HTML del front
-app.mount("/Front", StaticFiles(directory="Front", html=True), name="Front")
+# app.mount("/Front", StaticFiles(directory="Front", html=True), name="Front")
 
-# aqui se define la ruta principal para que mande al index
-@app.get("/")
-async def read_index():
-    return RedirectResponse(url="/Front/indexG.html")
+# # aqui se define la ruta principal para que mande al index
+# @app.get("/")
+# async def read_index():
+#     return RedirectResponse(url="../Front/indexG.html")
 
 # Pydantic model para las peticiones del QR
 class QRRequest(BaseModel): # Pydantic model para los QR
@@ -72,15 +73,13 @@ async def scan_qr(qr_request: QRRequest):
 # Ruta para la trivia
 @app.post("/trivia")  
 async def trivia(id_visitante):
+    print("entrando al back jej")
     info = obtener_resumenes_visitantes(id_visitante)
     edadVisitante = obtener_edad_usuario(id_visitante)
 
     for i in range(len(info)):
         pregunta = pregunta_trivia_Gemini(info[i], edadVisitante, id_visitante)
-        print(pregunta)
+    return pregunta
 
-#! Revisa el flujo de aplicacion terminal si tienes dudas
 
-#! Endpoint para enviar finalizar el recorrido
-
-# Para correr el servidor de FastAPI: uvicorn Backend:app --reload
+#TODO: Para correr el servidor de FastAPI: uvicorn Backend:app --reload

@@ -3,11 +3,6 @@ const textScanElement = document.querySelector(".info-box");
 const finalizarRecorridoButton = document.getElementById("finalizar-recorrido");
 const continuarRecorridoButton = document.getElementById("continuar-recorrido");
 const qrReader = new Html5Qrcode("qr-reader");
-const questionBox = document.getElementById("question");
-const triviaButton1 = document.getElementsByClassName("option1")
-const triviaButton2 = document.getElementsByClassName("option2")
-const triviaButton3 = document.getElementsByClassName("option3")
-const triviaButton4 = document.getElementsByClassName("option4")
 
 let scanCount = 0; // Contador de escaneos
 
@@ -76,27 +71,6 @@ function onScanSuccess(decodedText) {
         });
     })
     .catch(error => console.error("Error al obtener el resumen:", error));
-}
-
-//Funcion para mostrar la trivia
-function showTrivia(){
-    fetch ("http://127.0.0.1:8000/trivia", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        // body: JSON.stringify({ })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Respuesta del backend:", data);
-        // Mostrar la pregunta con el efecto de escritura
-        typeText(questionBox, data["pregunta"], 25);
-        // Mostrar las opciones de respuesta
-        typeText(triviaButton1, data["opciones"][0], 25);
-        typeText(triviaButton2, data["opciones"][1], 25);
-        typeText(triviaButton3, data["opciones"][2], 25);
-        typeText(triviaButton4, data["opciones"][3], 25);
-    })
-    .catch(error => console.error("Error al obtener la trivia:", error));
 }
 
 // Función para obtener la cookie por su id_visitante
@@ -211,7 +185,6 @@ continuarRecorridoButton.addEventListener("click", () => {
 
 // Botón de finalizar recorrido
 finalizarRecorridoButton.addEventListener("click", () => {
-
     // Redirigir a la página de trivia
     window.location.href = "trivia.html";
 });
