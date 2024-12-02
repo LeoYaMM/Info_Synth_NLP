@@ -190,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 // Botón de continuar recorrido
 continuarRecorridoButton.addEventListener("click", () => {
     // Limpiar el resumen

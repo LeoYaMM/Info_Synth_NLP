@@ -16,7 +16,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: white;
+    background-color: rgb(167, 166, 166);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -85,7 +85,7 @@ body {
     padding: 12px 20px;
     font-size: 1em;
     color: #ffffff;
-    background-color: #4caf50;
+    background-color: #7d7d7d;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -95,59 +95,3 @@ body {
 .option:hover {
     background-color: #45a049;
 }
-
-/* Media query para tablets */
-@media (min-width: 600px) and (max-width: 900px) {
-    .scanner-container {
-        flex-direction: column;
-    }
-
-    .scanner-box, .explanation-box {
-        width: 550px;
-        height: 550px;
-    }
-
-    .scanner-box img {
-        height: 320px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    .main-content h2 {
-        font-size: 2.5rem;
-    }
-}
-
-/* Media query para celulares */
-@media (max-width: 599px) {
-    .scanner-container {
-        flex-direction: column;
-    }
-
-    .scanner-box, .explanation-box {
-        width: 180px;
-        height: 250px;
-    }
-
-    .scanner-box img {
-        height: 80px;
-    }
-
-    header h1 {
-        font-size: 1.2rem;
-    }
-
-    .main-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .main-content p {
-        font-size: 1rem;
-    }
-}
-
-
-
-
