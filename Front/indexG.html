@@ -11,11 +11,11 @@
   <header class="header">
     <h1 class="logo">Quetz<span>AI</span></h1>
     <nav class="menu">
-      <a href="#">ofrece<span class="tooltip">Resúmenes cortos y precisos de los contenidos presentados en la ficha ténica de la obra.</span></a>
-      <a href="#">a través de<span class="tooltip">El uso de técnicas avanzadas de Procesamiento de Lenguaje Natural (NPL)</span></a>
-      <a href="#">para<span class="tooltip">Facilitar tu experiencia educativa de forma más flexible y personalizada.</span></a>
+      <a href="#">What is?<span class="tooltip">QuetzAI is an abstractive summireizer using Gemini.<span></a>
+      <a href="#">How does it work?<span class="tooltip">QuetzAI uses Gemini, wich is a powerful transformer model developed by Google.</span></a>
+      <a href="#">Who can use it?<span class="tooltip">QuetzAI is developed for museums letting the information be more accesible for people of all ages.</span></a>
       <!-- <a href="#">los encontrarás en<span class="tooltip"></span></a> -->
-      <a href="#">cómo usarla<span class="tooltip">Abre la cámara de tu celular, coloca el código QR en el centro, espera unos segundos a que procese la información y ¡listo! </span></a>
+      <a href="#">How can I use it?<span class="tooltip">Allow access to your camera, put the QR code at the middle, wait for few seconds and there you go! </span></a>
     </nav>
   </header>
 
@@ -24,8 +24,9 @@
       <img src="img/QuetzAI.png" alt="Quetzalcóatl" class="image">
     </section>
     <section class="right-section">
-      <h2 class="title">sistema de sintetización de la información</h2>
-      <button class="start-button">INICIAR</button>
+      <h2 class="title">Abstractive Summarizer System</h2>
+      <h3>Powered by Gemini</h3>
+      <button class="start-button">START</button>
     </section>
   </main>
   <section class="lower-section">
@@ -40,22 +41,22 @@
     </div>
   </section>
   <div class="buttonSection">
-    <button type="submit" id="continuar-recorrido">Continuar Recorrido</button>
+    <button type="submit" id="continuar-recorrido">Continue Tour</button>
   <br><br>
-  <button id="finalizar-recorrido" style="display: none;" >Finalizar Recorrido</button>
+  <button id="finalizar-recorrido" style="display: none;" >End Tour</button>
   </div>
 
   <script src="main.js" ></script>
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
-      <h2>Ingrese sus datos</h2>
+      <h2>Introduce your:</h2>
       <form id="userForm">
-        <label for="name">Nombre:</label>
+        <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
-        <label for="age">Edad:</label>
+        <label for="age">Age:</label>
         <input type="number" id="age" name="age" required>
-        <button type="submit" class="submit-button">Enviar</button>
+        <button type="submit" class="submit-button">Send</button>
       </form>
     </div>
   </div>

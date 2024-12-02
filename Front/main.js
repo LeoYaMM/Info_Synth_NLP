@@ -64,7 +64,7 @@ function onScanSuccess(decodedText) {
         console.log(`Escaneos realizados: ${scanCount}`);
 
         // Mostrar el botón "Finalizar recorrido" si se han escaneado 10 o más códigos QR
-        if (scanCount >= 10) {
+        if (scanCount >= 5) {
             finalizarRecorridoButton.style.display = "block";
         }
 
