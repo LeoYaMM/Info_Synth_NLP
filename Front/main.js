@@ -2,8 +2,7 @@
 const textScanElement = document.querySelector(".info-box");
 const finalizarRecorridoButton = document.getElementById("finalizar-recorrido");
 const continuarRecorridoButton = document.getElementById("continuar-recorrido");
-const html5QrCode = new Html5Qrcode("qr-reader");
-
+const qrReader = new Html5Qrcode("qr-reader");
 const questionBox = document.getElementById("question");
 const triviaButton1 = document.getElementsByClassName("option1")
 const triviaButton2 = document.getElementsByClassName("option2")
@@ -70,7 +69,7 @@ function onScanSuccess(decodedText) {
         }
 
         // Detener el escáner después de un escaneo exitoso
-        html5QrCode.stop().then(() => {
+        qrReader.stop().then(() => {
             console.log("Escáner detenido.");
         }).catch((err) => {
             console.error("No se pudo detener el escáner:", err);
@@ -177,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const qrReader = new Html5Qrcode("qr-reader");
 
     qrReader.start(
         { facingMode: "environment" }, // Usa la cámara trasera
@@ -199,11 +197,14 @@ continuarRecorridoButton.addEventListener("click", () => {
     textScanElement.textContent = "";
 
     // Detener el escáner si está activo y luego reiniciarlo
-    html5QrCode.start(
-        { facingMode: "environment" },
-        config,
-        onScanSuccess,
-        onScanFailure
+    qrReader.start(
+        { facingMode: "environment" }, // Usa la cámara trasera
+        {
+            fps: 1, // Velocidad de escaneo
+            qrbox: { width: 250, height: 250 }, // Tamaño del área de escaneo
+        },
+        onScanSuccess, // Función para manejar un escaneo exitoso
+        onScanFailure // Función para manejar errores en el escaneo
     ).catch((err) => {
         console.error("Error al iniciar el escáner QR:", err);
     });
