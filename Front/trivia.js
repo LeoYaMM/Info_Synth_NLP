@@ -116,7 +116,7 @@ function loadQuestions() {
 function showQuestion() {
     if (currentQuestionIndex >= totalQuestions) {
         // Mostrar el resumen al final
-        alert(`Has respondido correctamente ${correctAnswers} de ${totalQuestions} preguntas.`);
+        alert(`Congratulations! You answered correctly: ${correctAnswers} / ${totalQuestions}`);
         return;
     }
 
