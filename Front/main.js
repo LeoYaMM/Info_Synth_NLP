@@ -51,6 +51,14 @@ function onScanSuccess(decodedText) {
     .then(response => response.json())
     .then(data => {
         console.log("Respuesta del backend:", data);
+
+        // Detener el escáner después de un escaneo exitoso
+        qrReader.stop().then(() => {
+            console.log("Escáner detenido.");
+        }).catch((err) => {
+            console.error("No se pudo detener el escáner:", err);
+        });
+
         // Mostrar el resumen con el efecto de escritura
         typeText(textScanElement, data.resumen, 25);
 
@@ -63,12 +71,7 @@ function onScanSuccess(decodedText) {
             finalizarRecorridoButton.style.display = "block";
         }
 
-        // Detener el escáner después de un escaneo exitoso
-        qrReader.stop().then(() => {
-            console.log("Escáner detenido.");
-        }).catch((err) => {
-            console.error("No se pudo detener el escáner:", err);
-        });
+        
     })
     .catch(error => console.error("Error al obtener el resumen:", error));
 }
@@ -185,6 +188,10 @@ continuarRecorridoButton.addEventListener("click", () => {
 
 // Botón de finalizar recorrido
 finalizarRecorridoButton.addEventListener("click", () => {
+    
+    // Guardar el N° de QRs escaneados por el visitante en las cookies
+    document.cookie = `scanCount=${scanCount}; path=/; SameSite=Lax`;
+
     // Redirigir a la página de trivia
     window.location.href = "trivia.html";
 });

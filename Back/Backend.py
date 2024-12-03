@@ -42,6 +42,7 @@ class Visitante(BaseModel): # Pydantic model para los visitantes
 # Modelo para recibir la solicitud
 class TriviaRequest(BaseModel):
     id_visitante: int
+    noResumen: int
 
 # Ruta para registrar un visitante
 @app.post("/registrar_visitante") #* Funciona correctamente
@@ -75,15 +76,34 @@ async def scan_qr(qr_request: QRRequest):
     return {"resumen": resumen}
 
 # Ruta para la trivia
-@app.post("/trivia")  
+# @app.post("/trivia")  
+# async def trivia(request: TriviaRequest):
+#     print("entrando al back jej")
+#     scanCount = request.noResumen
+    
+#     info = obtener_resumenes_visitantes(request.id_visitante)
+#     edadVisitante = obtener_edad_usuario(request.id_visitante)
+
+#     pregunta = pregunta_trivia_Gemini(info[scanCount], edadVisitante, request.id_visitante)
+#     logging.info(pregunta)
+#     return pregunta
+
+@app.post("/trivia")
 async def trivia(request: TriviaRequest):
     print("entrando al back jej")
+    scanCount = request.noResumen
     info = obtener_resumenes_visitantes(request.id_visitante)
     edadVisitante = obtener_edad_usuario(request.id_visitante)
+    
+    # Procesar las preguntas antes de hacer el return
+    preguntas = []
+    for i in range(scanCount):
+        pregunta = pregunta_trivia_Gemini(info[i], edadVisitante, request.id_visitante)
+        preguntas.append(pregunta)
+    
+    # Devolver todas las preguntas procesadas
+    return {"preguntas": preguntas}
 
-    pregunta = pregunta_trivia_Gemini(info[0], edadVisitante, request.id_visitante)
-    logging.info(pregunta)
-    return pregunta
 
 
 #TODO: Para correr el servidor de FastAPI: uvicorn Backend:app --reload
