@@ -81,7 +81,7 @@ body {
     gap: 10px;
 }
 
-.option1, .option2, .option3, .option4 {
+#option1, #option2, #option3, #option4 {
     padding: 12px 20px;
     font-size: 1em;
     color: #ffffff;
@@ -92,6 +92,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.option1:hover, .option2:hover, .option3:hover, .option4:hover {
+#option1:hover, #option2:hover, #option3:hover, #option4:hover {
     background-color: #45a049;
 }

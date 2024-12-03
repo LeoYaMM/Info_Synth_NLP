@@ -39,6 +39,9 @@ class Visitante(BaseModel): # Pydantic model para los visitantes
     nombre: str
     edad: int
 
+# Modelo para recibir la solicitud
+class TriviaRequest(BaseModel):
+    id_visitante: int
 
 # Ruta para registrar un visitante
 @app.post("/registrar_visitante") #* Funciona correctamente
@@ -73,13 +76,12 @@ async def scan_qr(qr_request: QRRequest):
 
 # Ruta para la trivia
 @app.post("/trivia")  
-async def trivia(id_visitante):
+async def trivia(request: TriviaRequest):
     print("entrando al back jej")
-    info = obtener_resumenes_visitantes(id_visitante)
-    edadVisitante = obtener_edad_usuario(id_visitante)
+    info = obtener_resumenes_visitantes(request.id_visitante)
+    edadVisitante = obtener_edad_usuario(request.id_visitante)
 
-    # for i in range(len(info)):
-    pregunta = pregunta_trivia_Gemini(info[0], edadVisitante, id_visitante)
+    pregunta = pregunta_trivia_Gemini(info[0], edadVisitante, request.id_visitante)
     logging.info(pregunta)
     return pregunta
 

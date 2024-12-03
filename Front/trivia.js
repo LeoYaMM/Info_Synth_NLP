@@ -1,19 +1,28 @@
 const questionBox = document.getElementById("question");
-const triviaButton1 = document.getElementsByClassName("option1")
-const triviaButton2 = document.getElementsByClassName("option2")
-const triviaButton3 = document.getElementsByClassName("option3")
-const triviaButton4 = document.getElementsByClassName("option4")
+const triviaButton1 = document.getElementById("option1")
+const triviaButton2 = document.getElementById("option2")
+const triviaButton3 = document.getElementById("option3")
+const triviaButton4 = document.getElementById("option4")
 
 //Funcion para mostrar la trivia
 function showTrivia(){
     const idVisitante = getCookie("id_visitante");
+    if (!idVisitante) {
+        console.error("ID del visitante no encontrado en las cookies");
+        return;
+    }
 
     fetch ("http://127.0.0.1:8000/trivia", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({id_visitante: idVisitante})
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Error en la respuesta del servidor: " + response.status);
+        }
+        return response.json();
+    })
     .then(data => {
         console.log("Respuesta del backend:", data);
         // Mostrar la pregunta con el efecto de escritura
@@ -26,6 +35,7 @@ function showTrivia(){
     })
     .catch(error => console.error("Error al obtener la trivia:", error));
 }
+
 
 // Función para simular el efecto de escritura en un elemento
 function typeText(element, text, delay = 25) {
