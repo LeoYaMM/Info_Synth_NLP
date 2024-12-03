@@ -9,6 +9,7 @@ from sqlConnector import *
 from GeminiAPIResumen import resumen_Gemini
 from GeminiAPITrivia import *
 import json
+import logging
 
 app = FastAPI()
 
@@ -77,8 +78,9 @@ async def trivia(id_visitante):
     info = obtener_resumenes_visitantes(id_visitante)
     edadVisitante = obtener_edad_usuario(id_visitante)
 
-    for i in range(len(info)):
-        pregunta = pregunta_trivia_Gemini(info[i], edadVisitante, id_visitante)
+    # for i in range(len(info)):
+    pregunta = pregunta_trivia_Gemini(info[0], edadVisitante, id_visitante)
+    logging.info(pregunta)
     return pregunta
 
 
