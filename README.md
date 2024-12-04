@@ -1,14 +1,11 @@
-Sistema Thot
+## Inspiration
+QuetzAI was born out of the need to make information in museums **accessible** to all ages. This information is often specialized and therefore many people do not retain the information on display efficiently.
 
-Bienvenido al repositorio de Thot, un sistema educativo que permite a los usuarios interactuar con una experiencia única de aprendizaje. Thot está diseñado para funcionar como una guía en museos, ayudando a los visitantes a obtener resúmenes de objetos de interés y realizar una trivia personalizada al finalizar el recorrido.
+## What it does
+QuetzAI reads QRs that contain the information of an historical object and do an **abstractive summary** of the information according to the **visitor's age**. Finally, after 10 objects scanned, there is the possibility to put on practice the new knowledge acquired by a trivia activity, where the questions are **generated dynamically** according to the scanned information and visitor's age.  
 
-Estado del Proyecto
+## How we built it
+We built a web application using **HTML**, **CSS** and **JavaScript** for the user interface, but the magic happens behind. There is a **Relational Data Base** where we store the visitor's information and object's information, using queries where **Gemini** creates abstractive summaries based on visitor's age, and storing this at the DB, and finally using these summaries to create **personalized questions** where visitors can put their knowledge on practice.  
 
-Por ahora, Thot se ejecuta de forma local. Aunque hemos enfrentado algunos problemas con el despliegue, su funcionalidad es adecuada y el sistema realiza todas las operaciones esperadas.
-
-Descripción del Funcionamiento
-
-	1.	Ingreso de Usuario: Al iniciar el programa, se solicita al usuario que ingrese su nombre y edad.
-	2.	Selección de Objeto: El usuario puede seleccionar un objeto de interés ingresando su ID, un número del 1 al 15 correspondiente a los objetos disponibles.
-	3.	Generación de Resumen: Una vez que el usuario selecciona el ID, el sistema genera un resumen detallado del objeto elegido.
-	4.	Trivia Final: Al finalizar el recorrido, el sistema muestra una trivia personalizada basada en la información de los objetos que el usuario consultó.
+## What's next for QuetzAI: A new way to visit museums?
+An awesome question! This web application is generalized, letting museums of all the world and all tematices use this app, so their visitors can learn more having fun in the process.
